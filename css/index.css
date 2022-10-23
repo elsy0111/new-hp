@@ -1,0 +1,445 @@
+@charset "utf-8";
+
+/*less-css*/
+@import url("https://unpkg.com/sanitize.css");
+
+
+
+/*-----------------ALL-----------------*/
+html,body {
+	margin: 0;padding: 0;
+	font-size: 14px;
+	height: 100%;
+}
+
+body {
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	-webkit-text-size-adjust: none;
+	background: #f7f7f7;
+	color: #222;
+	line-height: 2;
+}
+
+/*reset*/
+figure {margin: 0;}
+dd {margin: 0;}
+nav {margin: 0;padding: 0;}
+
+/*images*/
+img {border: none;max-width: 100%;height: auto;vertical-align: middle;}
+
+/*sections*/
+section + section {
+	padding-top:30px;	/*padding_each_section*/
+}
+
+a {
+	display: inline;
+	color: #222;
+	transition: .8s;
+}
+
+a:hover {
+	color: #03bdba;
+	transition: .5s;
+}
+
+
+/*container*/
+#container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+
+header {
+	display: flex;
+	align-items: center;
+	padding: 2px 20px;
+	background: #FFF;
+	color: #03bdba;
+}
+
+header a {
+	color: #03bdba;
+}
+
+/*logo-img*/
+header #logo img {
+	display: inline-block;
+}
+header #logo {
+	order: 1;
+	margin: 0 0 0 50px;
+	width: 230px;
+}
+
+/*icon-group*/
+#header-icon {
+	order: 2;
+	font-size: 25px;
+	margin-left: auto;
+}
+
+/*icon*/
+#header-icon i {
+	padding: 7px;
+}
+
+
+/*Humburger-menu*/
+/*block*/
+#menubar_hdr {
+	position: fixed;z-index: 101;
+	cursor: pointer;
+	left: 10px;
+	top: 10px;
+	padding: 10px 8px;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	order: 0;	
+	background: transparent;
+}
+
+/*each-bar*/
+#menubar_hdr span {
+	display: block;
+	transition: 0.6s;
+	border-top: 2.5px solid #03bdba;
+}
+
+/*each-x*/
+#menubar_hdr.ham span:nth-of-type(1),
+#menubar_hdr.ham span:nth-of-type(3) {
+	transform-origin: center center;
+	width: 27px;
+}
+
+/*x_1*/
+#menubar_hdr.ham span:nth-of-type(1){
+	transform: rotate(45deg) translate(6px, 7px);
+}
+
+/*x_2*/
+#menubar_hdr.ham span:nth-of-type(2){
+	display: none;
+}
+
+/*x_3*/
+#menubar_hdr.ham span:nth-of-type(3){
+	transform: rotate(-45deg) translate(6px, -7px);
+}
+
+
+/*menu-block*/
+#menubar {
+	height: 0px;
+	left: -250px;
+	overflow: hidden;
+}
+#menubar ul {
+	list-style: none;
+	margin: 0 12px;
+	padding: 0;
+}
+#menubar ul li.null {
+	height: 50px;
+}
+#menubar ul li a {
+	font-size: 17px;
+}
+
+/*menu-block*/
+#menubar.db {
+	position: fixed;
+	overflow: auto;
+	z-index: 100;
+	left: 0px;
+	top: 0px;
+	width: 220px;
+	height: 100%;
+	padding: 0;
+	background: rgba(255,255,255,.95);
+	color: #fff;
+	transition: .7s;
+}
+
+/*each-menu*/
+#menubar.db a {
+	color: #222;	/*文字色*/
+}
+
+/*current-menu*/
+#menubar.db li.current a {
+	background: #EEE;
+}
+
+/*current-menu*/
+#menubar.db li a:hover {
+	color: #EEE;
+	background: #03bdba;
+}
+
+.mainimg {
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.slide1 {
+	position: relative;
+}
+
+/*-----------------/ALL-----------------*/
+
+/*each-menu*/
+#menubar li {
+	margin-bottom: 50px;
+	letter-spacing: 0.2em;
+}
+#menubar a {
+	display: block;
+	text-decoration: none;
+	text-align: center;
+}
+
+
+main {	
+	flex: 1;
+	margin: 20px;
+}
+
+main h2 {
+	margin: 0;
+	margin-bottom: 20px;
+	font-weight: normal;
+	letter-spacing: 0.2em;
+	border-bottom: 4px solid #EEE;
+}
+
+main h2 span.uline {
+	display: inline-block;
+	position: relative;
+	border-bottom: 4px solid #03bdba;
+	bottom: -4px;
+	padding: 0 20px;
+}
+
+main p {
+	margin: 0 20px 30px;
+}
+
+/*footer*/
+footer small {
+	font-size: 140%;
+}
+
+footer {
+	font-size: 0.6rem;
+	background: #111;
+	color: #AAA;
+	text-align: center;
+	padding: 10px;
+	font-family: sans-serif;
+}
+
+footer a {
+	color: #AAA;
+	text-decoration: none;
+}
+footer a:hover {
+	color: #FFF;
+}
+
+footer .pr {
+	display: block;
+}
+
+#new {
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 20px;
+}
+
+
+/*date*/
+#new dt {
+	width: 14em;	/*幅。14文字(em)分。*/
+	display: flex;	/*flexボックスを使う指定*/
+	justify-content: space-between;	/*日付とアイコンをそれぞれ端に寄せる*/
+}
+
+/*date*/
+#new dt,
+#new dd {
+	padding: 7px 0;
+}
+
+#new dt span {
+	display: inline-block;	/*表示させる*/
+	width: 6em;				/*幅。6文字(em)分。*/
+	background: #999;		/*背景色*/
+	color: #fff;			/*文字色*/
+	font-size: 0.9em;		/*文字サイズを90%に。*/
+	text-align: center;		/*文字をセンタリング*/
+	border-radius: 3px;		/*角を少しだけ丸くする*/
+	margin-right: 1.2em;	/*アイコンの右側に空けるスペース*/
+	align-self: flex-start;	/*高さを間延びさせない指定*/
+	line-height: 1.5;		/*行間を少し狭く*/
+	position: relative;top: 0.4em;	/*上下の配置バランスの微調整*/
+}
+
+/*dd*/
+#new dd {
+	width: calc(100% - 14em);
+}
+
+/*atcoder*/
+#new dt span.icon-acc {
+	background: #B33;	/*背景色*/
+}
+
+/*star*/
+#new dt span.icon-star {
+	background: #DA0;	/*背景色*/
+}
+
+/*star*/
+#new dt span.icon-tech {
+	background: #0AA;	/*背景色*/
+}
+
+
+@media screen and (max-width:600px) { /*! screen width <= 430 */
+
+/*ロゴ画像*/
+header #logo {
+	margin-left: 30px;
+	width: 100px;
+}
+
+main {	
+	margin: 10px;
+}
+
+#new dt {
+	width: 10em;
+	display: flex;	/*flexボックスを使う指定*/
+	flex-direction: column;
+	justify-content: none;
+}
+
+#new dd {
+	width: calc(100% - 8em);
+}
+
+}
+
+
+@media screen and (min-width:900px) { /*! screen width >= 900 */
+
+
+html, body {
+	font-size: 16.5px;
+}
+
+header #logo {
+	margin: 0;
+}
+
+
+/*desable-humburger-menu*/
+#menubar_hdr {
+	display: none;
+}
+
+#menubar {
+	width: 250px;
+	left: 0px;
+	top: 40px;
+	height: calc(100% - 40px);
+	position: fixed;
+}
+
+/*current-menu-bar*/
+#menubar li.current a {
+	background: #666;
+	color: #fff;
+}
+
+/*current-menu*/
+#menubar li a:hover {
+	color: #EEE;
+	background: #03bdba;
+}
+
+main {	
+	margin: 50px 50px 50px 250px;
+}
+
+
+/*date*/
+#new dt {
+	width: 14em;	/*幅。14文字(em)分。*/
+	display: flex;	/*flexボックスを使う指定*/
+	justify-content: space-between;	/*日付とアイコンをそれぞれ端に寄せる*/
+}
+
+#new dt span {
+	display: inline-block;	/*表示させる*/
+	width: 6em;				/*幅。6文字(em)分。*/
+	background: #999;		/*背景色*/
+	color: #fff;			/*文字色*/
+	font-size: 0.9em;		/*文字サイズを90%に。*/
+	text-align: center;		/*文字をセンタリング*/
+	border-radius: 3px;		/*角を少しだけ丸くする*/
+	margin-right: 1.2em;	/*アイコンの右側に空けるスペース*/
+	align-self: flex-start;	/*高さを間延びさせない指定*/
+	line-height: 1.5;		/*行間を少し狭く*/
+	position: relative;top: 0.4em;	/*上下の配置バランスの微調整*/
+}
+
+/*atcoder*/
+#new dt span.icon-acc {
+	background: #B33;	/*背景色*/
+}
+
+/*star*/
+#new dt span.icon-star {
+	background: #DA0;	/*背景色*/
+}
+
+/*star*/
+#new dt span.icon-tech {
+	background: #0AA;	/*背景色*/
+}
+
+/*記事(dd)設定*/
+#new dd {
+	width: calc(100% - 14em);	/*「14em」は上の「#new dt」のwidthの値です。*/
+}
+
+}
+
+
+
+
+/*---------------------------------------------------------------------------
+ここから下は画面幅1200px以上の追加指定
+---------------------------------------------------------------------------*/
+@media screen and (min-width:1200px) {
+
+
+/*listブロック
+---------------------------------------------------------------------------*/
+/*１個あたりのボックス設定*/
+.list {
+	width: 24%;		/*幅。４列になります。*/
+}
+
+}
