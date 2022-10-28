@@ -1,15 +1,24 @@
-
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+
 <head>
-<meta charset="UTF-8">
-<title>Arcsecのメモ帳</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ょゎょゎプログラマのメモ帳">
-<script src="https://kit.fontawesome.com/b663e8072f.js" crossorigin="anonymous"></script>
-<script src="../prism/prism.js"></script>
-<link rel="stylesheet" href="../css/acc_274.css">
-<link rel="stylesheet" href="../prism/prism.css">
+  <meta charset="UTF-8">
+  <title>AtCoder記録簿</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ょゎょゎプログラマのメモ帳">
+  <link rel="stylesheet" href="../css/acc_274.css">
+  <link rel="stylesheet" href="../prism/prism.css">
+  <script src="../prism/prism.js"></script>
+  <script src="../fontawesomejs/fontawesome.js" crossorigin="anonymous"></script>
+
+
+  <meta property="og:url" content="https://xs011755.xsrv.jp/Procon/atcoder-report/acc_274.html">
+  <meta property="og:title" content="AtCoder記録簿 - ABC274">
+  <meta property="og:description" content="ょゎょゎプログラマのメモ帳">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://xs011755.xsrv.jp/Procon/images/python.png">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@arcsec_std" />
 </head>
 
 
@@ -21,107 +30,333 @@
 
 <header>
 
-<h1 id="logo"><img src="../images/logo.png" alt="logo"></h1>
-<div id="menubar_hdr">
-<span></span><span></span><span></span>
-</div>
+  <h1 id="logo"><img src="../images/logo.png" alt="logo"></h1>
+  <div id="menubar_hdr">
+    <span></span><span></span><span></span>
+  </div>
 
 
-<!------header-icon------>
-<div id="header-icon">
-<a href = "https://twitter.com/arcsec_std" target = "_blank"><i class="fa-brands fa-twitter"></i></a>
-<a href = "https://github.com/elsy0111" target = "_blank"><i class="fa-brands fa-github"></i></a>
-</div>
-<!------/header-icon------>
+  <!------header-icon------>
+  <div id="header-icon">
+    <a href="https://twitter.com/arcsec_std" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+    <a href="https://github.com/elsy0111" target="_blank"><i class="fa-brands fa-github"></i></a>
+  </div>
+  <!------/header-icon------>
 
 </header>
 
 <!------------/header------------>
-
 <main>
-
-
-<!----------/hero-image---------->
-
-<!-- none -->
-
-<!------------Archive------------>
 
 <section>
 
-<h2><span class = "accent">A</span>tCoder <span class = "accent">B</span>eginner <span class = "accent">C</span>ontest <span class = "accent">274</span></h2>
+<h2>
+  <span class="accent">A</span>tCoder <span class="accent">B</span>eginner
+  <span class="accent">C</span>ontest <span class="accent">274</span>
+</h2>
+
+<h3>目次</h3>
+<div class="margin index">
+  <div class = "dt"><a href="https://atcoder.jp/contests/abc274/tasks">AtCoder Beginner Contest 274 <i class="fa-sharp fa-solid fa-link"></i></a></div>
+  <div class = "dt"><a href = "#A">A - Batting Average</a><span class = "icon-ac icon">AC</span></div>
+  <div class = "dt"><a href = "#B">B - Line Sensor</a><span class = "icon-ac icon">AC</span></div>
+  <div class = "dt"><a href = "#C">C - Ameba</a><span class = "icon">-</span></div>
+  <div class = "dt"><a href = "#D">D - Robot Arms 2</a><span class = "icon-tl icon">TLE</span></div>
+</div>
+<!-- ! ---------- A問題 -------------- -->
+
+<div class="change"></div>
 
 <div class="new">
-<div class = "dt">A - Batting Average <span class="icon-ac icon">AC</span></div>
+  <div class="dt">
+    <a id = "A" href = "https://atcoder.jp/contests/abc274/tasks/abc274_a" target="_blank">
+      A - Batting Average <i class="fa-sharp fa-solid fa-link"></i></a>
+    <span class="icon-ac icon">AC</span>
+  </div>
 </div>
 
-<div class = "margin">
-<h3>問題</h3>
-<p class = "ques">
-    整数 $A,B$ があります。ここで $A,B$ は $1\leq A\leq10$,$0\leq B\leq A$ を満たします。
-    このとき、文字列 $S$ を次のように定義します。
+<h3>- 問題 -</h3>
+<p class="ques">
+  整数 $A,B$ があります。ここで $A,B$ は $1\leq A\leq 10 \: ,\: 0\leq B\leq A$ を満たします。
+  このとき、文字列 $S$ を次のように定義します。
 </p>
-<p class = "f_large margin">
-    $B/A$ を小数点第 $4$ 位で四捨五入した値を「整数部 $1$ 桁」「 . 」「小数部 $3$ 桁」の順に末尾ゼロを省略せずに表記した文字列。
+<p class="f_large margin">
+  ${\Large \frac{B}{A}}$ を小数点第 $4$ 位で四捨五入した値を「整数部 $1$ 桁」「 . 」「小数部 $3$
+  桁」の順に末尾ゼロを省略せずに表記した文字列。
 </p>
-<p class = "ques">
-    例えば $A=7,B=4$ の場合は、$B/A = 4/7 =0.571428…$ で、これを小数点第 $4$ 位で四捨五入した値は $0.571$です。
-    よって $S$ は $0.571$ になります。
+<p class="ques">
+  例えば $A=7,B=4$ の場合は、${\Large \frac{B}{A}} = {\Large \frac{4}{7}} =
+  0.571428…$ で、これを小数点第 $4$ 位で四捨五入した値は $0.571$です。
+  よって $S$ は $0.571$ になります。
 </p>
-<p class = "ques">
-    $A,B$ が入力として与えられるので $S$ を出力してください。
+<p class="ques">
+  $A,B$ が入力として与えられるので $S$ を出力してください。
 </p>
 
 <h3>制約</h3>
-<p class = "ques">
+<p class="ques">
   $1\leq A\leq 10$<br>
   $0\leq B \leq A$<br>
   $A,B \in \mathbb{Z}$
 </p>
 
 <h3>入力</h3>
-<p class = "ques">入力は以下の形式で標準入力から与えられる。</p>
-<div class = "code">
-  $A,B$
+<p class="ques">入力は以下の形式で標準入力から与えられる。</p>
+<div class="code">
+  $A\quad B$
 </div>
+
 <h3>出力</h3>
-<p class = "ques">S を問題文の指示に従った形式で出力せよ。</p>
+<p class="ques"> $S$ を問題文の指示に従った形式で出力せよ。</p>
 
-
-<h3>解説</h3>
-<div class = "margin">
-  <h3>問題文の要約</h3>
-  <p>小数第四位を四捨五入して第三桁目まで出力してください。但し、出力する形式は小数第三位まで埋めてください。</p>
-  <h3>Code</h3>
-  
+<h3>入力例</h3>
+<div class="code">
+  <div class="block">
+    7 4
+  </div>
 </div>
 
+<h3>出力例</h3>
+<div class="code">
+  <div class="block">
+    0.571
+  </div>
+</div>
+<!-- ! ---- A解説 ------- -->
 
-<div class = "new">
-<div class = "dt">B - Line Sensor <span class="icon-ac icon">AC</span></div>
-<p class = "ques">解説を書きます。しばらくお待ちください.../</p>
+<h3>- 解説 -</h3>
+<div class="margin">
+<h3>問題文の要約</h3>
+<p>小数第四位を四捨五入して第三桁目まで出力してください。但し、出力する形式は小数第三位まで埋めてください。</p>
+<h3>Code</h3>
+<pre class="line-numbers">
+<code class="language-python">a,b = map(int,input().split())
+
+x = b/a
+y = round(x, 3)
+
+print('{:.3f}'.format(y))</code>
 </div>
 
-<div class = "new">
-<div class = "dt">C - Ameba <span class="icon">-</span></div>
-<p class = "ques">解説を書きます。しばらくお待ちください.../</p>
+<!-- ! ---------- B問題 -------------- -->
+
+<div class = "change"></div>
+
+<div class="new">
+  <div class="dt">
+    <a id = "B" href="https://atcoder.jp/contests/abc274/tasks/abc274_b" target="_blank">
+      B - Line Sensor <i class="fa-sharp fa-solid fa-link"></i></a>
+    <span class="icon-ac icon">AC</span>
+  </div>
 </div>
 
-<div class = "new">
-<div class = "dt">D - Robot Arms 2 <span class="icon-tl icon">TLE</span></div>
-<p class = "ques">解説を書きます。しばらくお待ちください.../</p>
+<h3>- 問題 -</h3>
+<p class="ques">
+  縦 $H$ マス、横 $W$ マスのグリッドがあります。上から $i$ 行目、左から $j$ 列目のマスを $(i,j)$
+  と表します。
+  各マスの状態は文字 $C_{i,j}$ で表されます。
+  $C_{i,j}$ が <span class="back">.</span> ならば $(i,j)$ には何も置かれておらず、
+  <span class="back">#</span> ならば箱が $1$ 個置かれています。
+  <br>
+  $1\leq j\leq W$ を満たす整数 $j$ に対して、整数 $X_j$ を次のように定義します。
+</p>
+<p class="margin f_large">
+  $j$ 列目に置かれている箱の個数。言い換えると、$C_{i,j}$ が <span class="back">#</span> であるような整数 $i$ の個数。
+</p>
+<p class="ques">
+  $X_1,X_2,...,X_W$ をすべて求めてください。
+</p>
+
+<h3>制約</h3>
+<p class="ques">
+  $1\leq H\leq 1000$<br>
+  $1\leq W\leq 1000$<br>
+  $H,W \in \mathbb{Z}$<br>
+  $C_{i,j} \in \{\hspace{7px} .,\verb|#| \hspace{7px} \}$
+</p>
+
+<h3>入力</h3>
+<p class="ques">入力は以下の形式で標準入力から与えられる。</p>
+<div class="code">
+  $H\quad W$<br>
+  $C_{1,1}C_{1,2} ... C_{1,W}$<br>
+  $C_{2,1}C_{2,2} ... C_{2,W}$<br>
+  $\hspace{7px} \vdots$<br>
+  $C_{H,1}C_{H,2} ... C_{H,W}$<br>
+</div>
+
+<h3>出力</h3>
+<p class="ques"> $X_1,X_2,...,X_W$ を以下の形式に従って出力せよ。</p>
+<div class="code">$X_1\quad X_2\quad ...\quad X_W$</div>
+
+<h3>入力例</h3>
+<div class="code">
+  <div class="block">
+    3 4<br>
+    #..#<br>
+    .#.#<br>
+    .#.#<br>
+  </div>
+</div>
+
+<h3>出力例</h3>
+<div class="code">
+  <div class="block">
+    1 2 0 3
+  </div>
+</div>
+
+<!-- ! ---- B解説 ------- -->
+
+<h3>- 解説 -</h3>
+<div class="margin">
+<h3>問題文の要約</h3>
+<p>縦横のテーブルの縦(列)に、<span class="back">#</span>は何個あるか。</p>
+<p>$\Rightarrow$ 二次元配列を作り、各行の同じ個数目の要素に<span class="back">#</span>は何個あるか。</p>
+<h3>Code</h3>
+<pre class = "line-numbers"><code class="language-python">h,w = map(int,input().split())
+
+//arr : 縦h行*横w列の二次元配列
+arr = []
+for i in range(h):
+    arr.append(input())
+
+ans = []                //解答の格納
+for j in range(w):      //全(w)列回す
+    cnt = 0
+    for i in range(h):  //全(h)行回す
+        if arr[i][j] == '#':
+            cnt += 1
+    ans.append(cnt)
+
+//出力
+for i in ans[:len(ans) - 1]:
+    print(i,end = " ")
+print(ans[-1])
+</code></pre>
+</div>
+
+<!-- ! ---------- C問題 -------------- -->
+
+<div class = "change"></div>
+
+<div class="new">
+  <div class="dt">
+    <a id = "C" href="https://atcoder.jp/contests/abc274/tasks/abc274_c" target="_blank">
+      C - Ameba <i class="fa-sharp fa-solid fa-link"></i></a>
+      <span class="icon">-</span>
+    </div>
+  <p class="ques">問題が理解できなかったため次</p>
+</div>
+
+<!-- ! ---------- D問題 -------------- -->
+
+<div class = "change"></div>
+
+<div class="new">
+  <div class="dt">
+    <a id = "D" href = "https://atcoder.jp/contests/abc274/tasks/abc274_d" target="_blank">
+      D - Robot Arms 2 <i class="fa-sharp fa-solid fa-link"></i></a>
+    <span class="icon-tl icon">TLE</span>
+  </div>
+</div>
+
+<h3>- 問題 -</h3>
+<p class="ques">
+長さ $N$ の正整数列 $A=(A_1,A_2,...,A_N)$ および整数 $x,y$ が与えられます。<br>
+次の条件をすべて満たすように、$xy$ 座標平面上に $N+1$ 個の
+点 $p_1,p_2,...,p_N,p_{N+1}$ を配置することができるか判定してください。
+(同じ座標に $2$ 個以上の点を配置してもよいです。)
+</p>
+<p class="margin f_large">
+$1) \quad p_1 = (0,0)$<br>
+$2) \quad p_2 = (A_1,0)$<br>
+$3) \quad$点 $p_i$ と点 $p_{i+1}$ の距離は $A_i\,(1\leq i\leq N)$<br>
+$4) \quad$線分 $p_i \, p_{i+1}$ と 線分 $p_{i+1} \, p_{i+2}$ のなす角は $90$ 度 $\,(1\leq i\leq N-1)$<br>
+</p>
+
+<h3>制約</h3>
+<p class="ques">
+  $2\leq N\leq 10^3$<br>
+  $1\leq A_i\leq 10$<br>
+  $|x|,|y|\leq 10^4$<br>
+  $N,A_i,x,y \in \mathbb{Z}$<br>
+</p>
+
+<h3>入力</h3>
+<p class="ques">入力は以下の形式で標準入力から与えられる。</p>
+<div class="code">
+  $N\quad x\quad y$<br>
+  $A_1\quad A_2\quad ... \quad A_N\quad$<br>
+</div>
+
+<h3>出力</h3>
+<p class="ques">
+  問題文の条件をすべて満たすように $p_1,p_2,...,p_N,p_{N+1}$ を配置することができる場合は <span class="back">Yes</span> を、
+  そうでない場合は <span class="back">No</span> を出力せよ。
+</p>
+<div class="code">
+  <div class="block">
+    Yes
+  </div>
+</div>
+<div class="code">
+  <div class="block">
+    No
+  </div>
+</div>
+
+<h3>入力例</h3>
+<div class="code">
+  <div class="block">
+    3 -1 1<br>
+    2 1 3<br>
+  </div>
+</div>
+
+<h3>出力例</h3>
+<div class="code">
+  <div class="block">
+    Yes
+  </div>
+</div>
+
+<!-- ! ---- D解説 ------- -->
+<h3>- 解説 -</h3>
+<div class="margin">
+<h3>問題文の要約</h3>
+<p>
+  条件 $1),2)$より、( $p_2$ は固定なので) 最初 $p_2 \to p_3$ は $(p_2,0)$ から $y$ 軸方向へ進むことがわかる。<br>
+  条件 $4)$ より、 $x$ 軸, $y$ 軸方向へ交互に $90$ 度ずつ、ジグザグに進むことがわかる。<br>
+  したがって、問題文は以下のように訳すことができる。 <br>
+</p>
+<p class = "margin f_large">
+  $\alpha : \: $$x \,$軸方向において $A_2$ に $A_i \,$( $i$ は偶数) を足すか引くかして $x$ になるか <br>
+  $\beta  : \: $$y \,$軸方向において $0$ に $A_i \,$( $i$ は奇数) を足すか引くかして $y$ になるか <br>
+  $\alpha \: \land \beta$ を満たすとき、$p_2$ から $p_{N+1}$ まで移動できたといえる。
+</p>
+
+<h3>Code</h3>
+<pre><code class="language-python">None
+</code></pre>
+
+<h3>言い訳</h3>
+<p>
+  この問題をそのまま解こうとすると足すか引くかの $2$ 通りを全て調べる必要があります(全探索)。<br>
+  なので、計算量としては $O(2^N)$ となり、最悪の場合 $10^{301}$(回) ほどの計算が必要になります。<br>
+  ですのでむりです。
+
+</p>
 </div>
 
 </section>
 
-<!------------/Archive------------>
+<!------------/Another------------>
 
 <section>
-
-<h2><span class = "accent">A</span>nother <span class = "accent">C</span>ontest</h2>
-
-<div class = "new">
-<div class = "dt"><a href="acc_274.html">ABC 274</a><span class = "icon">2022/10/22</span></div>
+<h2><span class="accent">A</span>nother <span class="accent">C</span>ontest</h2>
+<div class="new an">
+  <div class="dt"><a href="acc_274.html">ABC 274</a><span class="icon">2022/10/22</span></div>
 </div>
 
 </section>
@@ -131,16 +366,16 @@
 
 <!------------Menu-bar------------>
 
-<div id = "menubar">
+<div id="menubar">
 
-<nav>
-<ul>
-<li class = "null"> </li>
-<li><a href="../index.html">TOP</a></li>
-<li class = "current"><a href = "acc.html">AtCoder記録簿<br></a></li>
-<li><a>有明高専プロコン<br>メンバー募集中</a></li>
-</ul>
-</nav>
+  <nav>
+    <ul>
+      <li class="null"> </li>
+      <li><a href="../index.html">TOP</a></li>
+      <li class="current"><a href="acc.html">AtCoder記録簿<br></a></li>
+      <li><a href="../offer/offer.html">有明高専コン研<br>部員募集中！！</a></li>
+    </ul>
+  </nav>
 
 </div>
 
@@ -148,28 +383,29 @@
 <!------------/Menu-bar------------>
 
 <footer>
-<small>Copyleft <span id = "copy-left">&copy;</span><a href="index.html"><span> Arcsec</span> from Ariake-NCT </a></small>
+  <small>Copyleft <span id="copy-left">&copy;</span><a href="../index.html"><span> Arcsec</span> from Ariake-NCT
+    </a></small>
 </footer>
 
 </div>
 
 <!------------Import JQuery------------>
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-MathJax = {
-  "HTML-CSS": {
-    matchFontHeight:false,
-    EqnChunk: 50,
-  },
-  tex: {
-    inlineMath: [['$', '$']]
-  }
-};
+  MathJax = {
+    "HTML-CSS": {
+      matchFontHeight: false,
+      EqnChunk: 50,
+    },
+    tex: {
+      inlineMath: [['$', '$']]
+    }
+  };
 </script>
-<script id="MathJax-script" async
-src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script src = "../js/main.js"></script>
+<script src="../js/main.js"></script>
 
 </body>
+
 </html>
