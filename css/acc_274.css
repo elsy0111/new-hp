@@ -17,8 +17,12 @@
 html,body {
 	margin: 0;
 	padding: 0;
-	font-size: 14px;
 	height: 100%;
+}
+
+
+p{
+	font-size: 19px;
 }
 
 body {
@@ -29,12 +33,13 @@ body {
 	line-height: 2;
 }
 
-pre {
+.code {
+	font-family: serif;
     display: block;
     padding: 9.5px;
-    margin: 0 0 10px;
-    font-size: 13px;
-    line-height: 1.42857143;
+    margin: 0 20px 10px;
+    font-size: 1.3em;
+    line-height: 1.4;
     word-break: break-all;
     word-wrap: break-word;
     color: #333;
@@ -45,7 +50,7 @@ pre {
 
 
 h3 {
-	font-size: large;
+	font-size: x-large;
 	margin: 0;
 }
 
@@ -54,7 +59,8 @@ main p.ques {
 }
 
 main p.f_large{
-	font-size: 1.105m;
+	padding: 10px 0;
+	font-size: 1.15m;
 }
 
 .accent {
@@ -74,7 +80,7 @@ main {
 }
 
 main h2 {
-	font-size: xx-large;
+	font-size: 2.3em;
 	line-height: 1.6em;
 	font-family: CorpB;
 	margin: 0;
@@ -92,10 +98,6 @@ main h2 span.uline {
 	padding: 0 20px;
 }
 
-/*reset*/
-figure {
-	margin: 0;
-}
 dd {
 	margin: 0;
 }
@@ -352,7 +354,7 @@ footer span:hover {
 }
 .new div.dt {
 	width: 100%;
-	font-size: x-large;
+	font-size: xx-large;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -406,6 +408,11 @@ header #logo {
 	margin-left: auto;
 }
 
+
+.new div.dt {
+	font-size: x-large;
+	
+}
 /*icon*/
 #header-icon i {
 	padding-right: 6px;
@@ -475,7 +482,7 @@ header #logo {
 }
 
 #menubar {
-	width: 300px;
+	width: 240px;
 	left: 0px;
 	top: 40px;
 	margin: 0 30px;
@@ -496,7 +503,7 @@ header #logo {
 }
 
 main {
-	margin: 50px 50px 50px 360px;
+	margin: 50px 50px 50px 300px;
 }
 
 .new div.dt span.icon {

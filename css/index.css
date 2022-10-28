@@ -437,7 +437,7 @@ header #logo {
 }
 
 #menubar {
-	width: 300px;
+	width: 240px;
 	left: 0px;
 	top: 40px;
 	margin: 0 30px;
@@ -458,7 +458,7 @@ header #logo {
 }
 
 main {
-	margin: 50px 50px 50px 360px;
+	margin: 50px 50px 50px 300px;
 }
 
 .new dt span {
