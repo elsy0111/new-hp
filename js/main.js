@@ -1,4 +1,4 @@
-//ハンバーガーメニューがham(X印)を持つかどうかにより、メニューを表示するか、見えなくするか。
+//Humburger menu
 function db() {
 	if($('#menubar_hdr').hasClass('ham')) {
 		$('#menubar').addClass('db');
@@ -17,30 +17,7 @@ $(function() {
 });
 
 
-//change menu
-$(window).on("load resize", function() {
-	setTimeout(function(){
-
-		var winW = window.innerWidth;
-		var winBP = 900;	//ブレイクポイント
-
-			//小さな端末用
-			if(winW < winBP) {
-				$('#menubar').removeClass('pc');
-				$('#menubar').addClass('sh');
-				db();
-				
-			//大きな端末用
-			} else {
-				$('#menubar').removeClass('sh db');
-				$('#menubar').addClass('pc');
-			}
-
-	}, 100);
-});
-
-
-// 同一ページへのリンクの場合に開閉メニューを閉じる処理
+//remove Humburger menu
 $(function() {
 	$('#menubar a[href^="#"]').click(function() {
 		$('#menubar').removeClass('db');
@@ -48,30 +25,6 @@ $(function() {
 	});
 });
 
-
-// 汎用開閉処理
-$(function() {
-	$('.openclose').next().hide();
-	$('.openclose').click(function() {
-		$(this).next().slideToggle();
-		$('.openclose').not(this).next().slideUp();
-	});
-});
-
-
-//pagetop
-$(function() {
-    var scroll = $('.pagetop');
-    var scrollShow = $('.pagetop-show');
-        $(scroll).hide();
-        $(window).scroll(function() {
-            if($(this).scrollTop() >= 300) {
-                $(scroll).fadeIn().addClass(scrollShow);
-            } else {
-                $(scroll).fadeOut().removeClass(scrollShow);
-            }
-        });
-});
 
 //line Under h2
 $(function() {

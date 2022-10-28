@@ -22,11 +22,59 @@ html,body {
 }
 
 body {
-	font-family:sans-serif;
+	font-family: sans-serif;
 	-webkit-text-size-adjust: none;
 	background: #f7f7f7;
 	color: #222;
 	line-height: 2;
+}
+
+h3 {
+	font-size: large;
+	margin: 0;
+}
+
+main p.ques {
+	margin: 0 20px 10px;
+}
+
+main p.f_large{
+	font-size: 1.105m;
+}
+
+.accent {
+	color: #03bdba;
+}
+
+main p.margin{
+	margin: 0 30px 10px;
+}
+div.margin{
+	margin: 0 20px;
+}
+
+main {	
+	flex: 1;
+	margin: 20px;
+}
+
+main h2 {
+	font-size: xx-large;
+	line-height: 1.6em;
+	font-family: CorpB;
+	margin: 0;
+	margin-bottom: 20px;
+	font-weight: normal;
+	letter-spacing: 0.2em;
+	border-bottom: 4px solid #EEE;
+}
+
+main h2 span.uline {
+	display: inline-block;
+	position: relative;
+	border-bottom: 4px solid #03bdba;
+	bottom: -4px;
+	padding: 0 20px;
 }
 
 /*reset*/
@@ -139,23 +187,23 @@ header #logo {
 
 /*each-x*/
 #menubar_hdr.ham span:nth-of-type(1),
-#menubar_hdr.ham span:nth-of-type(3) {
+#menubar_hdr.ham span:nth-of-type(3){
 	transform-origin: center center;
 	width: 27px;
 }
 
 /*x_1*/
-#menubar_hdr.ham span:nth-of-type(1){
+#menubar_hdr.ham span:nth-of-type(1) {
 	transform: rotate(45deg) translate(6px, 7px);
 }
 
 /*x_2*/
-#menubar_hdr.ham span:nth-of-type(2){
+#menubar_hdr.ham span:nth-of-type(2) {
 	display: none;
 }
 
 /*x_3*/
-#menubar_hdr.ham span:nth-of-type(3){
+#menubar_hdr.ham span:nth-of-type(3) {
 	transform: rotate(-45deg) translate(6px, -7px);
 }
 
@@ -188,7 +236,7 @@ header #logo {
 	width: 220px;
 	height: 100%;
 	padding: 0;
-	background: rgba(255,255,255,.95);
+	background: rgba(255, 255, 255, .95);
 	color: #fff;
 	transition: .7s;
 }
@@ -232,31 +280,7 @@ header #logo {
 }
 
 
-main {	
-	flex: 1;
-	margin: 20px;
-}
 
-main h2 {
-	font-family: CorpB;
-	margin: 0;
-	margin-bottom: 20px;
-	font-weight: normal;
-	letter-spacing: 0.2em;
-	border-bottom: 4px solid #EEE;
-}
-
-main h2 span.uline {
-	display: inline-block;
-	position: relative;
-	border-bottom: 4px solid #03bdba;
-	bottom: -4px;
-	padding: 0 20px;
-}
-
-main p {
-	margin: 0 20px 30px;
-}
 
 /*footer*/
 footer small {
@@ -297,6 +321,7 @@ footer span:hover {
 	cursor: default;
 }
 
+
 .new {
 	margin: 0;
 	display: flex;
@@ -306,21 +331,18 @@ footer span:hover {
 
 
 /*date*/
-.new dt,
-.new dd {
+.new div.dt{
+	font-family: CorpM;
 	padding: 7px 0;
 }
-.new dt {
-	width: 14em;
+.new div.dt {
+	width: 100%;
+	font-size: x-large;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 }
-.new dd {
-	width: calc(100% - 14em);
-}
-
-.new dt span {
+.new div.dt span.icon {
 	font-family: CorpM;
 	display: inline-block;
 	width: 6em;
@@ -341,15 +363,15 @@ footer span:hover {
 
 
 /*atcoder*/
-.new dt span.icon-acc {
+.new div.dt span.icon.icon-wa {
 	background: #B33;
 }
 /*star*/
-.new dt span.icon-star {
+.new div.dt span.icon.icon-tl {
 	background: #DA0;
 }
 /*tech*/
-.new dt span.icon-tech {
+.new div.dt span.icon.icon-ac {
 	background: #0AA;
 }
 
@@ -377,7 +399,9 @@ header #logo {
 	top: 12px;
 }
 
-
+a{
+	text-decoration: none;
+}
 
 html, body {
 	font-size: 14.5px;
@@ -387,17 +411,16 @@ main {
 	margin: 10px;
 }
 
-.new dt {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+main h2{
+	font-size: x-large;
 }
-.new dd {
-	width: 100%;
+
+/*date*/
+.new div.dt {
+	font-size: 1.45em;
 }
-.new dt span {
-	width: 7em;
+.new div.dt span.icon {
+	width: 5.5em;
 	font-size: 0.8em;
 	padding-top: 0em;
 	padding-left: 0.3em;
@@ -461,7 +484,7 @@ main {
 	margin: 50px 50px 50px 360px;
 }
 
-.new dt span {
+.new div.dt span.icon {
 	font-size: 0.8em;
 	padding-top: 0.05em;
 	padding-left: 0.3em;
