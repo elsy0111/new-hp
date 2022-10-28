@@ -1,0 +1,656 @@
+@charset "utf-8";
+
+/*less-css*/
+@import url("../sanitizecss/sanitize.css");
+
+
+@font-face {
+	font-family: 'CorpB';
+	src: url("../fonts/Corporate-Logo-Bold-ver2.woff") format('woff');
+}
+@font-face {
+	font-family: 'CorpM';
+	src: url("../fonts/Corporate-Logo-Medium-ver2.woff") format('woff');
+}
+
+body {
+    scrollbar-width: none; /*Firefox対応のスクロールバー非表示コード*/  
+    -ms-overflow-style: none;/*Internet Explore対応のスクロールバー非表示コード*/   
+}
+
+body::-webkit-scrollbar {  
+  display: none; /*Google Chrome、Safari、Microsoft Edge対応のスクロールバー非表示コード*/
+}
+
+/*-----------------ALL-----------------*/
+html,body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.new .dt a {
+  display: block;
+  padding-top: 5rem;
+  margin-top: -5rem;
+  content: "";
+}
+
+.right {
+	font-size: 0.8em;
+}
+
+.index {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+.index div{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.index a{
+	font-family: CorpM;
+	letter-spacing: 0.1em;
+	font-size: 1.3em;
+}
+
+img.pdf {
+	display: block;
+	background-color: #fff;
+}
+
+.dt img{
+	position: relative;
+	display: block;
+	text-align: center;
+	width: 50%;
+}
+
+.small {
+	font-size: small;
+}
+
+span.gray-text {
+	color :#777;
+}
+
+.ques a{
+	color: #03bdba;
+}
+
+.new .dt a{
+	color:#03bdba
+}
+
+a i {
+	font-size: .65em;
+}
+
+.change {
+	display: inline-block;
+	height: 40px;
+}
+
+p{
+	font-size: 1.2em;
+}
+
+main p.f_large{
+	font-size: 1.25em;
+}
+
+.code {
+	font-size: 1.2em;
+}
+
+
+body {
+	font-family: sans-serif;
+	-webkit-text-size-adjust: none;
+	background: #f7f7f7;
+	color: #222;
+	line-height: 2;
+}
+
+.back {
+	display: inline-block;
+	padding: 0 0.2em;
+	background-color: #ddd;
+	border-radius: 0.1em;
+}
+
+.block {
+	font-family: Consolas,"ubuntu",monospace;
+	letter-spacing: 0.3em;
+	line-height: 1.3em;
+}
+
+.code {
+    display: block;
+    padding: 0.6em 0.8em;
+    margin: 0 20px 10px;
+    line-height: 1.9em;
+    word-break: break-all;
+    word-wrap: break-word;
+    color: #333;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+h3 {
+	font-size: x-large;
+	margin: 0;
+}
+
+main p.ques {
+	margin: 0 20px 10px;
+}
+
+main p.f_large{
+	padding: 10px 0;
+}
+
+.accent {
+	color: #03bdba;
+}
+
+main p.margin{
+	margin: 0 30px 10px;
+}
+div.margin{
+	margin: 0 20px;
+}
+
+main {	
+	flex: 1;
+	margin: 20px;
+}
+
+main h2 {
+	font-size: 2.3em;
+	line-height: 1.6em;
+	font-family: CorpB;
+	margin: 0;
+	margin-bottom: 20px;
+	font-weight: normal;
+	letter-spacing: 0.2em;
+	border-bottom: 4px solid #EEE;
+}
+
+main h2 span.uline {
+	display: inline-block;
+	position: relative;
+	border-bottom: 4px solid #03bdba;
+	bottom: -4px;
+}
+
+dd {
+	margin: 0;
+}
+nav {
+	margin: 0;
+	padding: 0;
+}
+
+/*images*/
+img {
+	border: none;
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+/*sections*/
+section + section {
+	padding-top:30px;	/*padding_each_section*/
+}
+
+a {
+	display: inline;
+	color: #222;
+	transition: .8s;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #03bdba;
+	transition: .5s;
+}
+
+
+/*container*/
+#container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+div.header-bg {
+	position : fixed;
+	display: inline-block;
+	z-index: 15;
+	width: 100%;
+	height: 70px;
+	background: rgba(255, 255, 255, 0.6);
+}
+
+header {
+	z-index: 20;
+	display: flex;
+	align-items: center;
+	padding: 0 20px 2px;
+	background: #FFF;
+	color: #03bdba;
+}
+
+header a {
+	color: #03bdba;
+}
+
+/*logo-img*/
+header #logo img {
+	display: inline-block;
+}
+header #logo {
+	order: 1;
+	margin: 0 0 0 50px;
+	width: 300px;
+}
+
+/*icon-group*/
+#header-icon {
+	order: 2;
+	font-size: 29px;
+	margin-left: auto;
+}
+
+/*icon*/
+#header-icon i {
+	padding-top: 0.65em;
+	padding-right: 19px;
+}
+
+
+/*Humburger-menu*/
+/*block*/
+#menubar_hdr {
+	position: fixed;
+	z-index: 101;
+	cursor: pointer;
+	left: 14px;
+	top: 15px;
+	padding: 10px 8px;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	order: 0;	
+	background: transparent;
+}
+
+/*each-bar*/
+#menubar_hdr span {
+	display: block;
+	transition: 0.6s;
+	border-top: 2.5px solid #03bdba;
+}
+
+/*each-x*/
+#menubar_hdr.ham span:nth-of-type(1),
+#menubar_hdr.ham span:nth-of-type(3){
+	transform-origin: center center;
+	width: 27px;
+}
+
+/*x_1*/
+#menubar_hdr.ham span:nth-of-type(1) {
+	transform: rotate(45deg) translate(6px, 7px);
+}
+
+/*x_2*/
+#menubar_hdr.ham span:nth-of-type(2) {
+	display: none;
+}
+
+/*x_3*/
+#menubar_hdr.ham span:nth-of-type(3) {
+	transform: rotate(-45deg) translate(6px, -7px);
+}
+
+
+/*menu-block*/
+#menubar {
+	height: 0px;
+	left: -250px;
+	overflow: hidden;
+}
+#menubar ul {
+	list-style: none;
+	margin: 0 12px;
+	padding: 0;
+}
+#menubar ul li.null {
+	height: 80px;
+}
+#menubar ul li a {
+	font-size: 17px;
+}
+
+/*menu-block*/
+#menubar.db {
+	position: fixed;
+	overflow: auto;
+	z-index: 10;
+	left: 0px;
+	top: 0px;
+	width: 220px;
+	height: 100%;
+	padding: 0;
+	background: rgba(255, 255, 255, .95);
+	color: #fff;
+	transition: .7s;
+}
+
+/*each-menu*/
+#menubar.db a {
+	color: #222;	/*文字色*/
+}
+
+/*current-menu*/
+#menubar.db li.current a {
+	background: #EEE;
+}
+
+/*current-menu*/
+#menubar.db li a:hover {
+	color: #EEE;
+	background: #03bdba;
+}
+
+.mainimg {
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.hero-image {
+	position: relative;
+}
+
+/*-----------------/ALL-----------------*/
+
+/*each-menu*/
+#menubar li {
+	margin-bottom: 50px;
+	letter-spacing: 0.2em;
+}
+#menubar a {
+	display: block;
+	text-decoration: none;
+	text-align: center;
+}
+
+
+
+
+/*footer*/
+footer small {
+	font-size: 140%;
+}
+footer small span#copy-left {
+	display: inline-block;;
+	transform: rotate(180deg);
+	padding-top: 0em;
+	padding-left: 0.4em;
+	font-size: 1.3em;
+}
+
+footer {
+	font-size: 0.7rem;
+	letter-spacing: 0.5em;
+	background: #999;
+	color: #FFF;
+	text-align: center;
+	padding: 10px;
+	font-family: serif;
+}
+
+footer a {
+	color: #FFF;
+	text-decoration: none;
+}
+footer a:hover {
+	color: #FFF;
+}
+footer span{
+	display: inline;
+	transition: 0.6s;
+}
+footer span:hover {
+	color: #03beba;
+	transition: 0.6s;
+	cursor: default;
+}
+
+
+.new {
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0;
+}
+
+
+/*date*/
+.new div.dt{
+	font-family: CorpM;
+	padding: 7px 0;
+}
+.new div.dt {
+	width: 100%;
+	font-size: xx-large;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.dt span.icon {
+	font-family: CorpM;
+	display: inline-block;
+	width: 6em;
+	background: #999;
+	color: #fff;
+	font-size: 0.85em;
+	padding-top: 0.1em;
+	padding-left: 0.2em;
+	letter-spacing: 0.25em;
+	text-align: center;
+	border-radius: 3px;
+	margin-right: 1.2em;
+	align-self: flex-start;
+	line-height: 1.3em;
+	position: relative;
+	top: 0.55em;
+}
+
+.index div span.icon {
+	width: 6em;
+	font-size: 0.9em;
+	padding: 0.075em 0 0.15em 0.2em;
+	line-height: 1.6em;
+}
+
+.an div.dt {
+	font-size: 1.4em;
+}
+.an div.dt span.icon {
+	width: 10em;
+	font-size: 0.8em;
+	padding-top: 0;
+	line-height: 1.4em;
+}
+
+/*atcoder*/
+div.dt span.icon.icon-wa {
+	background: #B33;
+}
+/*star*/
+div.dt span.icon.icon-tl {
+	background: #DA0;
+}
+/*tech*/
+div.dt span.icon.icon-ac {
+	background: #0AA;
+}
+
+
+@media screen and (max-width:600px) { /*! screen width <= 600 */
+p{
+	font-size: 1em;
+}
+
+main p.f_large{
+	font-size: 1.05em;
+}
+
+.code {
+	font-size: 1em;
+}
+
+.index a{
+	font-size: 1.2em;
+}
+
+header #logo {
+	order: 1;
+	margin-left: 35px;
+	width: 200px;
+}
+/*icon-group*/
+#header-icon {
+	order: 2;
+	font-size: 25px;
+	padding-top: 3px;
+	margin-left: auto;
+}
+
+/*icon*/
+#header-icon i {
+	padding-right: 6px;
+}
+#menubar_hdr {
+	top: 12px;
+}
+
+a{
+	text-decoration: none;
+}
+
+main {	
+	margin: 20px;
+}
+
+main h2 {
+	font-size: 1.7em;
+}
+
+main h3 {
+	font-size: 1.3em;
+}
+
+/*date*/
+.new div.dt {
+	font-size: 1.4em;
+}
+
+.new div.dt span.icon {
+	width: 5.5em;
+	font-size: 0.8em;
+	padding-top: 0em;
+	padding-left: 0.3em;
+	letter-spacing: 0.35em;
+}
+
+.index div span.icon {
+	margin-right: 0;
+	font-size: 0.9em;
+	padding: 0 0 0 0.2em;
+	line-height: 1.5em;
+}
+
+.an div.dt {
+	font-size: 1.3em;
+}
+.an div.dt span.icon {
+	width: 10em;
+	font-size: 0.7em;
+	padding-top: 0;
+	line-height: 1.6em;
+}
+
+footer {
+	font-size: 0.4rem;
+	letter-spacing: 0.4em;
+}
+}
+
+
+@media screen and (min-width:950px) { /*! screen width >= 950 */
+
+
+html, body {
+	font-size: 16.5px;
+}
+
+header #logo {
+	margin: 0;
+}
+
+/*icon*/
+#header-icon i {
+	margin-right: 20px;
+}
+#header-icon i {
+	padding-right: 20px;
+}
+
+/*desable-humburger-menu*/
+#menubar_hdr {
+	display: none;
+}
+
+#menubar {
+	width: 240px;
+	left: 0px;
+	top: 40px;
+	margin: 0 30px;
+	height: calc(100% - 40px);
+	position: fixed;
+}
+
+/*current-menu-bar*/
+#menubar li.current a {
+	background: #666;
+	color: #fff;
+}
+
+/*current-menu*/
+#menubar li a:hover {
+	color: #EEE;
+	background: #03bdba;
+}
+
+main {
+	margin: 50px 50px 50px 300px;
+}
+
+.new div.dt span.icon {
+	font-size: 0.8em;
+	padding-top: 0.05em;
+	padding-left: 0.3em;
+}
+
+}
