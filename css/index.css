@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /*less-css*/
-@import url("https://unpkg.com/sanitize.css");
+@import url("../sanitizecss/sanitize.css");
 
 
 @font-face {
@@ -11,6 +11,15 @@
 @font-face {
 	font-family: 'CorpM';
 	src: url("../fonts/Corporate-Logo-Medium-ver2.woff") format('woff');
+}
+
+body {
+    scrollbar-width: none; /*Firefox対応のスクロールバー非表示コード*/  
+    -ms-overflow-style: none;/*Internet Explore対応のスクロールバー非表示コード*/   
+}
+
+body::-webkit-scrollbar {  
+  display: none; /*Google Chrome、Safari、Microsoft Edge対応のスクロールバー非表示コード*/
 }
 
 /*-----------------ALL-----------------*/
@@ -75,6 +84,14 @@ a:hover {
 	justify-content: space-between;
 }
 
+div.header-bg {
+	position : fixed;
+	display: inline-block;
+	z-index: 15;
+	width: 100%;
+	height: 70px;
+	background: rgba(255, 255, 255, 0.6);
+}
 
 header {
 	z-index: 20;
