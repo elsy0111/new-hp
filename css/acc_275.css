@@ -29,6 +29,20 @@ html,body {
 	height: 100%;
 }
 
+
+.new .dt a {
+  display: block;
+  padding-top: 5rem;
+  margin-top: -5rem;
+  content: "";
+}
+
+.an .dt a {
+  display: block;
+  padding-top: 0;
+  margin-top: 0;
+}
+
 .index {
 	display: flex;
 	flex-wrap: wrap;
@@ -53,7 +67,7 @@ span.gray-text {
 
 .change {
 	display: inline-block;
-	height: 40px;
+	height: 60px;
 }
 
 p{
@@ -62,6 +76,7 @@ p{
 
 main p.f_large{
 	font-size: 1.25em;
+	padding: 10px 0;
 }
 
 .code {
@@ -110,10 +125,6 @@ h3 {
 
 main p.ques {
 	margin: 0 20px 10px;
-}
-
-main p.f_large{
-	padding: 10px 0;
 }
 
 .accent {
@@ -476,7 +487,7 @@ p{
 }
 
 main p.f_large{
-	font-size: 1.05em;
+	font-size: 1em;
 }
 
 .code {

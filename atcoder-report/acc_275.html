@@ -135,7 +135,7 @@
 <h3>問題文の要約</h3>
 <p>
   $max(h)$ のインデックス。<br>
-  $\large \Rightarrow \overset{\Large argmax(h)}{\small i \quad}$<br>
+  $\large \Rightarrow \overset{\Large argmax(h_i)}{\small i \quad}$<br>
   便利なことに、この $argmax$ をそのまま実装できるライブラリが numpy にあります。<br>
   それを使って実装してみましょう。
 </p>
@@ -201,7 +201,6 @@ print(np.argmax(h) + 1)</code>
 </div>
 
 <!-- ! ---- B解説 ------- -->
-
 <h3>- 解説 -</h3>
 <div class="margin">
 <h3>問題文の要約</h3>
@@ -227,6 +226,141 @@ print(((a*b*c)-(d*e*f))%998244353)</code></pre>
       <span class="icon icon-wa">WA</span>
     </div>
 </div>
+<h3>- 問題 -</h3>
+<p class="ques">
+  二次元平面があります。$1$ 以上 $9$ 以下の整数 $r,c$ について、$S_r$ 
+  の $c$ 番目の文字が <span class="back">#</span> であるとき座標 $(r,c)$ 
+  にポーンが置いてあり、$S$ の $c$ 番目の文字が <span class="back">.</span> 
+  であるとき座標 $(r,c)$ に何も置かれていません。<br>
+
+  この平面上の正方形であって、$4$ 頂点全てにポーンが置いてあるものの個数を求めてください。
+</p>
+
+<h3>制約</h3>
+<p class="ques">
+  $S_1,S_2,...,S_9$ はそれぞれ
+   <span class="back">#</span> と
+   <span class="back">.</span> からなる長さ $9$ の文字列
+</p>
+
+<h3>入力</h3>
+<p class="ques">入力は以下の形式で標準入力から与えられる。</p>
+<div class="code">
+  $S_1$<br>
+  $S_2$<br>
+  $\vdots$<br>
+  $S_9$<br>
+</div>
+
+<h3>出力</h3>
+<p class="ques">
+  答えを出力せよ。
+</p>
+
+<h3>入力例</h3>
+<div class="code">
+  <div class="block">
+    ##.......<br>
+    ##.......<br>
+    .........<br>
+    .......#.<br>
+    .....#...<br>
+    ........#<br>
+    ......#..<br>
+    .........<br>
+    .........<br>
+  </div>
+</div>
+
+<h3>出力例</h3>
+<div class="code">
+  <div class="block">
+    2
+  </div>
+</div>
+
+<!-- ! ---- C解説 ------- -->
+<h3>- 解説 -</h3>
+<div class="margin">
+<h3>問題文の要約</h3>
+<p>
+  <span class="back">#</span> を頂点とする正方形は何個ありますか？<br>
+  ここで判定するポイントとしては $2$ 個の頂点が決まった時点で残りの頂点は決まります。その個所に
+   <span class="back">#</span> があるのかどうかを調べます。<br>
+  全ての座標において説明するのは難しいので、以下は <span class="back">#</span> が $4$ 個であり、
+  即ち、正方形が $1$ この場合について説明します。 <br>
+  $1$ 個目の <span class="back">#</span> の座標を $(x_1,y_1)$ <br>
+  $n$ 個目の <span class="back">#</span> の座標を $(x_n,y_n)\quad (1 \leq n \leq 4)$ <br>
+  $1$ 個目の <span class="back">#</span> の座標と 
+  $2$ 個目の <span class="back">#</span> の座標の差を $(\Delta x,\Delta y)$ と表すこととします。<br>
+  <span class="gray-text">$\:\Leftrightarrow (\Delta x,\Delta y) = (x_2,y_2) - (x_1,y_1)$</span><br><br>
+  したがって、求めるのは以下です。<br>
+  <p class="f_large margin">
+    $(x_1,y_1)$
+    $\stackrel{\text{def}}{=} (x,y)$<br>
+    $s.t. (x,y) =$ <span class="back">#</span><br><br>
+
+    $\alpha : \: (x_2,y_2)$
+    $=(x_1 + \Delta x,y_1 + \Delta y)$
+    $=$ <span class="back">#</span><br>
+    $\beta  : \: (x_3,y_3)$
+    $=(x_1 - \Delta y,y_1 + \Delta x)$
+    $=$ <span class="back">#</span><br>
+    $\gamma : \: (x_4,y_4)$
+    $=(x_1 - \Delta y + \Delta x,y_1 + \Delta x + \Delta y)$
+    $= $ <span class="back">#</span><br><br>
+
+    $\alpha \land \beta \land \gamma$ を満たすとき, $(x_n,y_n) = $ <span class="back">#</span> を頂点とする正方形であるといえる。<br>
+
+  </p>
+
+</p>
+
+<h3>Code [WA]</h3>
+<pre class = "line-numbers"><code class="language-python">arr = []  #入力を格納する配列
+for i in range(9):
+    arr.append(input())
+ 
+ans = 0   #条件を満たした正方形の個数
+
+for i in range(9):
+    for j in range(9):
+        if arr[i][j] == "#":
+            break_bool = False
+            x1 = i
+            y1 = j
+            for y in range(y1,9):
+                for x in range(9):  #↓(x_1,y_1)よりも右下を探索 => (x_1,x_2)までは探索しない
+                    if y == y1 and x <= x1:
+                        continue
+                    if arr[x][y] == "#":  #(x_2,y_2) = #
+                        dx = x - x1
+                        dy = y - x2
+                        break_bool = True
+                        break
+                if break_bool:
+                    break
+            if not break_bool:
+                break
+            
+            try:
+                if arr[x1 + dx][y1 + dy] == "#":
+                    if arr[x1 - dy][y1 + dx] == "#":
+                        if arr[x1 - dy + dx][y1 + dy + dx] == "#":
+                            ans += 1
+            except IndexError:
+                break
+ 
+print(ans)
+</code></pre>
+</div>
+<br>
+<div class="margin">
+  <h3>なぜ間違えたのですか?</h3>
+<p>
+  $(x_1,y_1)$ を頂点とする正方形は1つだけではないのです...
+</p>
+</div>
 
 <!-- ! ---------- D問題 -------------- -->
 
@@ -234,69 +368,54 @@ print(((a*b*c)-(d*e*f))%998244353)</code></pre>
 
 <div class="new">
   <div class="dt">
-    <a id = "D" href = "https://atcoder.jp/contests/abc274/tasks/abc274_d" target="_blank">
-      D - Robot Arms 2 <i class="fa-sharp fa-solid fa-link"></i></a>
+    <a id = "D" href = "https://atcoder.jp/contests/abc275/tasks/abc275_d" target="_blank">
+      D - Yet Another Recursive Function<i class="fa-sharp fa-solid fa-link"></i></a>
     <span class="icon-tl icon">TLE</span>
   </div>
 </div>
 
 <h3>- 問題 -</h3>
 <p class="ques">
-長さ $N$ の正整数列 $A=(A_1,A_2,...,A_N)$ および整数 $x,y$ が与えられます。<br>
-次の条件をすべて満たすように、$xy$ 座標平面上に $N+1$ 個の
-点 $p_1,p_2,...,p_N,p_{N+1}$ を配置することができるか判定してください。
-(同じ座標に $2$ 個以上の点を配置してもよいです。)
+  非負整数 $x$ に対し定義される関数 $f(x)$ は以下の条件を満たします。<br>
 </p>
 <p class="margin f_large">
-$1) \quad p_1 = (0,0)$<br>
-$2) \quad p_2 = (A_1,0)$<br>
-$3) \quad$点 $p_i$ と点 $p_{i+1}$ の距離は $A_i\,(1\leq i\leq N)$<br>
-$4) \quad$線分 $p_i \, p_{i+1}$ と 線分 $p_{i+1} \, p_{i+2}$ のなす角は $90$ 度 $\,(1\leq i\leq N-1)$<br>
+  $f(0) = 1$<br>
+  任意の正整数 $k$ に対し 
+  $f(k)=f({\large \lfloor \frac{k}{2} \rfloor} ) + f({\large \lfloor \frac{k}{3} \rfloor })$<br>
+</p>
+<p class="ques">
+  ここで、$\lfloor A \rfloor$ は $A$ の小数点以下を切り捨てた値を指します。<br>
+  このとき、 $f(N)$ を求めてください。<br>
 </p>
 
 <h3>制約</h3>
 <p class="ques">
-  $2\leq N\leq 10^3$<br>
-  $1\leq A_i\leq 10$<br>
-  $|x|,|y|\leq 10^4$<br>
-  $N,A_i,x,y \in \mathbb{Z}$<br>
+  $0\leq N\leq 10^{18}$<br>
+  $N \in \mathbb{Z}$<br>
 </p>
 
 <h3>入力</h3>
 <p class="ques">入力は以下の形式で標準入力から与えられる。</p>
 <div class="code">
-  $N\quad x\quad y$<br>
-  $A_1\quad A_2\quad ... \quad A_N\quad$<br>
+  $N$<br>
 </div>
 
 <h3>出力</h3>
 <p class="ques">
-  問題文の条件をすべて満たすように $p_1,p_2,...,p_N,p_{N+1}$ を配置することができる場合は <span class="back">Yes</span> を、
-  そうでない場合は <span class="back">No</span> を出力せよ。
+  答えを出力せよ。
 </p>
-<div class="code">
-  <div class="block">
-    Yes
-  </div>
-</div>
-<div class="code">
-  <div class="block">
-    No
-  </div>
-</div>
 
 <h3>入力例</h3>
 <div class="code">
   <div class="block">
-    3 -1 1<br>
-    2 1 3<br>
+    2
   </div>
 </div>
 
 <h3>出力例</h3>
 <div class="code">
   <div class="block">
-    Yes
+    3
   </div>
 </div>
 
@@ -305,14 +424,16 @@ $4) \quad$線分 $p_i \, p_{i+1}$ と 線分 $p_{i+1} \, p_{i+2}$ のなす角�
 <div class="margin">
 <h3>問題文の要約</h3>
 <p>
-  条件 $1),2)$より、( $p_2$ は固定なので) 最初 $p_2 \to p_3$ は $(p_2,0)$ から $y$ 軸方向へ進むことがわかる。<br>
-  条件 $4)$ より、 $x$ 軸, $y$ 軸方向へ交互に $90$ 度ずつ、ジグザグに進むことがわかる。<br>
-  したがって、問題文は以下のように訳すことができる。 <br>
+  全ての項が$f(0)$になるまで関数を呼び出して計算してください。
 </p>
-<p class = "margin f_large">
-  $\alpha : \: $$x \,$軸方向において $A_2$ に $A_i \,$( $i$ は偶数) を足すか引くかして $x$ になるか <br>
-  $\beta  : \: $$y \,$軸方向において $0$ に $A_i \,$( $i$ は奇数) を足すか引くかして $y$ になるか <br>
-  $\alpha \: \land \beta$ を満たすとき、$p_2$ から $p_{N+1}$ まで移動できたといえる。
+
+<h3>そんな膨大な計算量どうすればいいですか</h3>
+<p>
+  メモ化を使うといいです。<br>
+  関数の引数に関数があり、その引数にも関数が、、このような構造、現象のことを再帰といいます。<br>
+  再帰をする問題ではよくメモ化と呼ばれる手法が出てきます。<br>
+  メモ化というのは一度計算した値をメモしておくことで計算量を劇的に削減する手法のことです。<br>
+  例としてはフィボナッチ数列の計算にも用いられています。<br>
 </p>
 
 <h3>Code</h3>
@@ -321,10 +442,13 @@ $4) \quad$線分 $p_i \, p_{i+1}$ と 線分 $p_{i+1} \, p_{i+2}$ のなす角�
 
 <h3>言い訳</h3>
 <p>
-  この問題をそのまま解こうとすると足すか引くかの $2$ 通りを全て調べる必要があります(全探索)。<br>
-  なので、計算量としては $O(2^N)$ となり、最悪の場合 $10^{301}$(回) ほどの計算が必要になります。<br>
-  ですのでむりです。
+  問題を見たときには残り10分を切っており、メモ化という手法自体は知っていたものの、
+  実装するのには間に合いませんでした。<br>
+  CよりDが簡単で、AよりBが簡単だと、、、、<br>
+  問題を解く際はすべて目を通してから解けるものから解くという高校受験的な何かを思い出しました。。。<br>
+  同じ2完だったけど良くなったとは思います。<br><br>
 
+  おわり。
 </p>
 </div>
 
@@ -335,9 +459,11 @@ $4) \quad$線分 $p_i \, p_{i+1}$ と 線分 $p_{i+1} \, p_{i+2}$ のなす角�
 <section>
 <h2><span class="accent">A</span>nother <span class="accent">C</span>ontest</h2>
 <div class="new an">
-  <div class="dt"><a href="acc_274.html">ABC 274</a><span class="icon">2022/10/22</span></div>
-</div>
 
+  <div class="dt"><a href="acc_275.html">ABC 275</a><span class="icon">2022/10/29</span></div>
+  <div class="dt"><a href="acc_274.html">ABC 274</a><span class="icon">2022/10/22</span></div>
+
+</div>
 </section>
 
 </main>
