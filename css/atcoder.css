@@ -26,174 +26,22 @@ body::-webkit-scrollbar {
 html,body {
 	margin: 0;
 	padding: 0;
+	font-size: 14px;
 	height: 100%;
 }
 
-.new .dt a {
-  display: block;
-  padding-top: 5rem;
-  margin-top: -5rem;
-  content: "";
-}
-
-.an .dt a {
-  display: block;
-  padding-top: 0;
-  margin-top: 0;
-}
-
-
-.right {
-	font-size: 0.8em;
-}
-
-.index {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-}
-.index div{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-.index a{
-	font-family: CorpM;
-	letter-spacing: 0.1em;
-	font-size: 1.3em;
-}
-
-img.pdf {
-	display: block;
-	background-color: #fff;
-}
-
-.dt img{
-	position: relative;
-	display: block;
-	text-align: center;
-	width: 50%;
-}
-
-.small {
-	font-size: small;
-}
-
-span.gray-text {
-	color :#777;
-}
-
-.ques a{
-	color: #03bdba;
-}
-
-.new .dt a{
-	color:#03bdba
-}
-
-a i {
-	font-size: .65em;
-}
-
-.change {
-	display: inline-block;
-	height: 40px;
-}
-
-p{
-	font-size: 1.2em;
-}
-
-main p.f_large{
-	font-size: 1.25em;
-}
-
-.code {
-	font-size: 1.2em;
-}
-
-
 body {
-	font-family: sans-serif;
+	font-family:sans-serif;
 	-webkit-text-size-adjust: none;
 	background: #f7f7f7;
 	color: #222;
 	line-height: 2;
 }
 
-.back {
-	display: inline-block;
-	padding: 0 0.2em;
-	background-color: #ddd;
-	border-radius: 0.1em;
-}
-
-.block {
-	font-family: Consolas,"ubuntu",monospace;
-	letter-spacing: 0.3em;
-	line-height: 1.3em;
-}
-
-.code {
-    display: block;
-    padding: 0.6em 0.8em;
-    margin: 0 20px 10px;
-    line-height: 1.9em;
-    word-break: break-all;
-    word-wrap: break-word;
-    color: #333;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-h3 {
-	font-size: x-large;
+/*reset*/
+figure {
 	margin: 0;
 }
-
-main p.ques {
-	margin: 0 20px 10px;
-}
-
-main p.f_large{
-	padding: 10px 0;
-}
-
-.accent {
-	color: #03bdba;
-}
-
-main p.margin{
-	margin: 0 30px 10px;
-}
-div.margin{
-	margin: 0 20px;
-}
-
-main {	
-	flex: 1;
-	margin: 20px;
-}
-
-main h2 {
-	font-size: 2.3em;
-	line-height: 1.6em;
-	font-family: CorpB;
-	margin: 0;
-	margin-bottom: 20px;
-	font-weight: normal;
-	letter-spacing: 0.2em;
-	border-bottom: 4px solid #EEE;
-}
-
-main h2 span.uline {
-	display: inline-block;
-	position: relative;
-	border-bottom: 4px solid #03bdba;
-	bottom: -4px;
-}
-
 dd {
 	margin: 0;
 }
@@ -249,7 +97,7 @@ header {
 	z-index: 20;
 	display: flex;
 	align-items: center;
-	padding: 0 20px 2px;
+	padding: 2px 20px;
 	background: #FFF;
 	color: #03bdba;
 }
@@ -285,8 +133,7 @@ header #logo {
 /*Humburger-menu*/
 /*block*/
 #menubar_hdr {
-	position: fixed;
-	z-index: 101;
+	position: fixed;z-index: 101;
 	cursor: pointer;
 	left: 14px;
 	top: 15px;
@@ -309,23 +156,23 @@ header #logo {
 
 /*each-x*/
 #menubar_hdr.ham span:nth-of-type(1),
-#menubar_hdr.ham span:nth-of-type(3){
+#menubar_hdr.ham span:nth-of-type(3) {
 	transform-origin: center center;
 	width: 27px;
 }
 
 /*x_1*/
-#menubar_hdr.ham span:nth-of-type(1) {
+#menubar_hdr.ham span:nth-of-type(1){
 	transform: rotate(45deg) translate(6px, 7px);
 }
 
 /*x_2*/
-#menubar_hdr.ham span:nth-of-type(2) {
+#menubar_hdr.ham span:nth-of-type(2){
 	display: none;
 }
 
 /*x_3*/
-#menubar_hdr.ham span:nth-of-type(3) {
+#menubar_hdr.ham span:nth-of-type(3){
 	transform: rotate(-45deg) translate(6px, -7px);
 }
 
@@ -358,7 +205,7 @@ header #logo {
 	width: 220px;
 	height: 100%;
 	padding: 0;
-	background: rgba(255, 255, 255, .95);
+	background: rgba(255,255,255,.95);
 	color: #fff;
 	transition: .7s;
 }
@@ -402,7 +249,31 @@ header #logo {
 }
 
 
+main {	
+	flex: 1;
+	margin: 20px;
+}
 
+main h2 {
+	font-family: CorpB;
+	margin: 0;
+	margin-bottom: 20px;
+	font-weight: normal;
+	letter-spacing: 0.2em;
+	border-bottom: 4px solid #EEE;
+}
+
+main h2 span.uline {
+	display: inline-block;
+	position: relative;
+	border-bottom: 4px solid #03bdba;
+	bottom: -4px;
+	padding: 0 20px;
+}
+
+main p {
+	margin: 0 20px 30px;
+}
 
 /*footer*/
 footer small {
@@ -443,28 +314,30 @@ footer span:hover {
 	cursor: default;
 }
 
-
 .new {
 	margin: 0;
 	display: flex;
 	flex-wrap: wrap;
-	padding: 0;
+	padding: 0 20px;
 }
 
 
 /*date*/
-.new div.dt{
-	font-family: CorpM;
+.new dt,
+.new dd {
 	padding: 7px 0;
 }
-.new div.dt {
-	width: 100%;
-	font-size: xx-large;
+.new dt {
+	width: 14em;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 }
-div.dt span.icon {
+.new dd {
+	width: calc(100% - 14em);
+}
+
+.new dt span {
 	font-family: CorpM;
 	display: inline-block;
 	width: 6em;
@@ -478,58 +351,27 @@ div.dt span.icon {
 	border-radius: 3px;
 	margin-right: 1.2em;
 	align-self: flex-start;
-	line-height: 1.3em;
+	line-height: 1.5;
 	position: relative;
-	top: 0.55em;
+	top: 0.4em;
 }
 
-.index div span.icon {
-	width: 6em;
-	font-size: 0.9em;
-	padding: 0.075em 0 0.15em 0.2em;
-	line-height: 1.6em;
-}
-
-.an div.dt {
-	font-size: 1.4em;
-}
-.an div.dt span.icon {
-	width: 10em;
-	font-size: 0.8em;
-	padding-top: 0;
-	line-height: 1.4em;
-}
 
 /*atcoder*/
-div.dt span.icon.icon-wa {
+.new dt span.icon-acc {
 	background: #B33;
 }
 /*star*/
-div.dt span.icon.icon-tl {
+.new dt span.icon-star {
 	background: #DA0;
 }
 /*tech*/
-div.dt span.icon.icon-ac {
+.new dt span.icon-tech {
 	background: #0AA;
 }
 
 
 @media screen and (max-width:600px) { /*! screen width <= 600 */
-p{
-	font-size: 0.9em;
-}
-
-main p.f_large{
-	font-size: 0.95em;
-}
-
-.code {
-	font-size: 0.9em;
-}
-
-.index a{
-	font-size: 1.1em;
-}
 
 header #logo {
 	order: 1;
@@ -552,51 +394,33 @@ header #logo {
 	top: 12px;
 }
 
-a{
-	text-decoration: none;
+
+
+html, body {
+	font-size: 14.5px;
 }
 
 main {	
-	margin: 20px;
+	margin: 10px;
 }
 
-main h2 {
-	font-size: 1.7em;
+.new dt {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
-
-main h3 {
-	font-size: 1.3em;
+.new dd {
+	width: 100%;
 }
-
-/*date*/
-.new div.dt {
-	font-size: 1.4em;
-}
-
-.new div.dt span.icon {
-	width: 5.5em;
+.new dt span {
+	width: 7em;
 	font-size: 0.8em;
 	padding-top: 0em;
 	padding-left: 0.3em;
 	letter-spacing: 0.35em;
 }
 
-.index div span.icon {
-	margin-right: 0;
-	font-size: 0.9em;
-	padding: 0 0 0 0.2em;
-	line-height: 1.5em;
-}
-
-.an div.dt {
-	font-size: 1.3em;
-}
-.an div.dt span.icon {
-	width: 10em;
-	font-size: 0.7em;
-	padding-top: 0;
-	line-height: 1.6em;
-}
 
 footer {
 	font-size: 0.4rem;
@@ -654,7 +478,7 @@ main {
 	margin: 50px 50px 50px 300px;
 }
 
-.new div.dt span.icon {
+.new dt span {
 	font-size: 0.8em;
 	padding-top: 0.05em;
 	padding-left: 0.3em;

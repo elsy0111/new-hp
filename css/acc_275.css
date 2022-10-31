@@ -29,24 +29,6 @@ html,body {
 	height: 100%;
 }
 
-.new .dt a {
-  display: block;
-  padding-top: 5rem;
-  margin-top: -5rem;
-  content: "";
-}
-
-.an .dt a {
-  display: block;
-  padding-top: 0;
-  margin-top: 0;
-}
-
-
-.right {
-	font-size: 0.8em;
-}
-
 .index {
 	display: flex;
 	flex-wrap: wrap;
@@ -58,41 +40,15 @@ html,body {
 	justify-content: space-between;
 }
 .index a{
-	font-family: CorpM;
-	letter-spacing: 0.1em;
 	font-size: 1.3em;
-}
-
-img.pdf {
-	display: block;
-	background-color: #fff;
-}
-
-.dt img{
-	position: relative;
-	display: block;
-	text-align: center;
-	width: 50%;
-}
-
-.small {
-	font-size: small;
 }
 
 span.gray-text {
 	color :#777;
 }
 
-.ques a{
-	color: #03bdba;
-}
-
-.new .dt a{
-	color:#03bdba
-}
-
-a i {
-	font-size: .65em;
+.dt a i {
+	font-size: small;
 }
 
 .change {
@@ -516,19 +472,19 @@ div.dt span.icon.icon-ac {
 
 @media screen and (max-width:600px) { /*! screen width <= 600 */
 p{
-	font-size: 0.9em;
+	font-size: 1em;
 }
 
 main p.f_large{
-	font-size: 0.95em;
+	font-size: 1.05em;
 }
 
 .code {
-	font-size: 0.9em;
+	font-size: 1em;
 }
 
 .index a{
-	font-size: 1.1em;
+	font-size: 1.2em;
 }
 
 header #logo {

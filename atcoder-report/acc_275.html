@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="ょゎょゎプログラマのメモ帳">
   <!-- ! -->
-  <link rel="stylesheet" href="../css/acc_274.css">
+  <link rel="stylesheet" href="../css/acc_275.css">
   <!-- ! -->
   <link rel="stylesheet" href="../prism/prism.css">
   <script src="../prism/prism.js"></script>
@@ -16,7 +16,7 @@
 
   <!-- ! -->
   <meta property="og:url" content="https://xs011755.xsrv.jp/Procon/atcoder-report/acc_274.html">
-  <meta property="og:title" content="AtCoder記録簿 - ABC274">
+  <meta property="og:title" content="AtCoder記録簿 - ABC275">
   <!-- ! -->
 
   <meta property="og:description" content="ょゎょゎプログラマのメモ帳">
@@ -60,18 +60,18 @@
   <span class="accent">A</span>tCoder <span class="accent">B</span>eginner
   <span class="accent">C</span>ontest 
   <!-- ! -->
-  <span class="accent">274</span>
+  <span class="accent">275</span>
   <!-- ! -->
 </h2>
 
 <h3>目次</h3>
 <div class="margin index">
   <!-- ! -->
-  <div class = "dt"><a href="https://atcoder.jp/contests/abc274/tasks" target = "_blank">AtCoder Beginner Contest 274 <i class="fa-sharp fa-solid fa-link"></i></a></div>
-  <div class = "dt"><a href = "#A">A - Batting Average</a><span class = "icon-ac icon">AC</span></div>
-  <div class = "dt"><a href = "#B">B - Line Sensor</a><span class = "icon-ac icon">AC</span></div>
-  <div class = "dt"><a href = "#C">C - Ameba</a><span class = "icon">-</span></div>
-  <div class = "dt"><a href = "#D">D - Robot Arms 2</a><span class = "icon-tl icon">TLE</span></div>
+  <div class = "dt"><a href="https://atcoder.jp/contests/abc275/tasks" target = "_blank">AtCoder Beginner Contest 275 <i class="fa-sharp fa-solid fa-link"></i></a></div>
+  <div class = "dt"><a href = "#A">A - Find Takahashi</a><span class = "icon-ac icon">AC</span></div>
+  <div class = "dt"><a href = "#B">B - ABC-DEF</a><span class = "icon-ac icon">AC</span></div>
+  <div class = "dt"><a href = "#C">C - Counting Squares</a><span class = "icon icon-wa">WA</span></div>
+  <div class = "dt"><a href = "#D">D - Yet Another Recursive Function</a><span class = "icon-tl icon">TLE</span></div>
   <!-- ! -->
 </div>
 <!-- ! ---------- A問題 -------------- -->
@@ -80,57 +80,52 @@
 
 <div class="new">
   <div class="dt">
-    <a id = "A" href = "https://atcoder.jp/contests/abc274/tasks/abc274_a" target="_blank">
-      A - Batting Average <i class="fa-sharp fa-solid fa-link"></i></a>
+    <a id = "A" href = "https://atcoder.jp/contests/abc275/tasks/abc275_a" target="_blank">
+      A - Find Takahashi<i class="fa-sharp fa-solid fa-link"></i></a>
     <span class="icon-ac icon">AC</span>
   </div>
 </div>
 
 <h3>- 問題 -</h3>
 <p class="ques">
-  整数 $A,B$ があります。ここで $A,B$ は $1\leq A\leq 10 \: ,\: 0\leq B\leq A$ を満たします。
-  このとき、文字列 $S$ を次のように定義します。
-</p>
-<p class="f_large margin">
-  ${\Large \frac{B}{A}}$ を小数点第 $4$ 位で四捨五入した値を「整数部 $1$ 桁」「 . 」「小数部 $3$
-  桁」の順に末尾ゼロを省略せずに表記した文字列。
-</p>
-<p class="ques">
-  例えば $A=7,B=4$ の場合は、${\Large \frac{B}{A}} = {\Large \frac{4}{7}} =
-  0.571428…$ で、これを小数点第 $4$ 位で四捨五入した値は $0.571$です。
-  よって $S$ は $0.571$ になります。
-</p>
-<p class="ques">
-  $A,B$ が入力として与えられるので $S$ を出力してください。
+  AtCoder 村には $N$ 本の橋があり、$i$ 本目（ $1\leq i\leq N$ , $i \in \mathbb{R}$ ）
+  の橋の高さは $H_i$です。<br>
+  ここで、AtCoder 村にある N 本の橋のうち、どの相異なる $2$ 本の橋も高さが異なります。<br>
+  AtCoder 村で最も高い橋は何本目の橋か出力してください。
 </p>
 
 <h3>制約</h3>
 <p class="ques">
-  $1\leq A\leq 10$<br>
-  $0\leq B \leq A$<br>
-  $A,B \in \mathbb{Z}$
+  $1\leq N\leq 100$<br>
+  $1\leq H_i \leq 10^9$<br>
+  $H_i$ は全て異なる<br>
+  $N,H \in \mathbb{Z}$
 </p>
 
 <h3>入力</h3>
 <p class="ques">入力は以下の形式で標準入力から与えられる。</p>
 <div class="code">
-  $A\quad B$
+  $N$<br>
+  $H_1\quad H_2\quad ...\quad H_N$
 </div>
 
 <h3>出力</h3>
-<p class="ques"> $S$ を問題文の指示に従った形式で出力せよ。</p>
+<p class="ques">
+  AtCoder 村で最も高い橋は何本目の橋かを、整数で出力せよ。
+</p>
 
 <h3>入力例</h3>
 <div class="code">
   <div class="block">
-    7 4
+    3<br>
+    50 80 70
   </div>
 </div>
 
 <h3>出力例</h3>
 <div class="code">
   <div class="block">
-    0.571
+    2
   </div>
 </div>
 <!-- ! ---- A解説 ------- -->
@@ -138,16 +133,24 @@
 <h3>- 解説 -</h3>
 <div class="margin">
 <h3>問題文の要約</h3>
-<p>小数第四位を四捨五入して第三桁目まで出力してください。但し、出力する形式は小数第三位まで埋めてください。</p>
+<p>
+  $max(h)$ のインデックス。<br>
+  $\large \Rightarrow \overset{\Large argmax(h)}{\small i \quad}$<br>
+  便利なことに、この $argmax$ をそのまま実装できるライブラリが numpy にあります。<br>
+  それを使って実装してみましょう。
+</p>
 <h3>Code</h3>
 <pre class="line-numbers">
-<code class="language-python">a,b = map(int,input().split())
+<code class="language-python">import numpy as np
 
-x = b/a
-y = round(x, 3)
+n = int(input())
+h = list(map(int,input().split()))
 
-print('{:.3f}'.format(y))</code>
+print(np.argmax(h) + 1)</code>
 </div>
+<p class = "ques">
+<span class="gray-text">ほかの言語がかわいそうになるくらい簡潔に実装できましたね...</span>
+</p>
 
 <!-- ! ---------- B問題 -------------- -->
 
@@ -155,65 +158,45 @@ print('{:.3f}'.format(y))</code>
 
 <div class="new">
   <div class="dt">
-    <a id = "B" href="https://atcoder.jp/contests/abc274/tasks/abc274_b" target="_blank">
-      B - Line Sensor <i class="fa-sharp fa-solid fa-link"></i></a>
+    <a id = "B" href="https://atcoder.jp/contests/abc275/tasks/abc275_b" target="_blank">
+      B - ABC-DEF<i class="fa-sharp fa-solid fa-link"></i></a>
     <span class="icon-ac icon">AC</span>
   </div>
 </div>
 
 <h3>- 問題 -</h3>
 <p class="ques">
-  縦 $H$ マス、横 $W$ マスのグリッドがあります。上から $i$ 行目、左から $j$ 列目のマスを $(i,j)$
-  と表します。
-  各マスの状態は文字 $C_{i,j}$ で表されます。
-  $C_{i,j}$ が <span class="back">.</span> ならば $(i,j)$ には何も置かれておらず、
-  <span class="back">#</span> ならば箱が $1$ 個置かれています。
-  <br>
-  $1\leq j\leq W$ を満たす整数 $j$ に対して、整数 $X_j$ を次のように定義します。
-</p>
-<p class="margin f_large">
-  $j$ 列目に置かれている箱の個数。言い換えると、$C_{i,j}$ が <span class="back">#</span> であるような整数 $i$ の個数。
-</p>
-<p class="ques">
-  $X_1,X_2,...,X_W$ をすべて求めてください。
+  非負整数 $A,B,C,D,E,F$ があり、$A×B×C\geq D×E×F$ をみたしています。<br>
+  $(A×B×C)−(D×E×F)$ の値を $998244353$ で割った余りを求めてください。
 </p>
 
 <h3>制約</h3>
 <p class="ques">
-  $1\leq H\leq 1000$<br>
-  $1\leq W\leq 1000$<br>
-  $H,W \in \mathbb{Z}$<br>
-  $C_{i,j} \in \{\hspace{7px} .,\verb|#| \hspace{7px} \}$
+  $1\leq A,B,C,D,E,F\leq 10^{18}$<br>
+  $A×B×C \geq D×E×F$<br>
+  $A,B,C,D,E,F \in \mathbb{Z}$<br>
 </p>
 
 <h3>入力</h3>
 <p class="ques">入力は以下の形式で標準入力から与えられる。</p>
 <div class="code">
-  $H\quad W$<br>
-  $C_{1,1}C_{1,2} ... C_{1,W}$<br>
-  $C_{2,1}C_{2,2} ... C_{2,W}$<br>
-  $\hspace{7px} \vdots$<br>
-  $C_{H,1}C_{H,2} ... C_{H,W}$<br>
+  $A\quad B\quad C\quad D\quad E\quad F\quad$<br>
 </div>
 
 <h3>出力</h3>
-<p class="ques"> $X_1,X_2,...,X_W$ を以下の形式に従って出力せよ。</p>
-<div class="code">$X_1\quad X_2\quad ...\quad X_W$</div>
+<p class="ques"> $(A×B×C)−(D×E×F)$ の値を $998244353$ で割った余りを整数で出力せよ。</p>
 
 <h3>入力例</h3>
 <div class="code">
   <div class="block">
-    3 4<br>
-    #..#<br>
-    .#.#<br>
-    .#.#<br>
+    2 3 5 1 2 4
   </div>
 </div>
 
 <h3>出力例</h3>
 <div class="code">
   <div class="block">
-    1 2 0 3
+    22
   </div>
 </div>
 
@@ -222,29 +205,15 @@ print('{:.3f}'.format(y))</code>
 <h3>- 解説 -</h3>
 <div class="margin">
 <h3>問題文の要約</h3>
-<p>縦横のテーブルの縦(列)に、<span class="back">#</span>は何個あるか。</p>
-<p>$\Rightarrow$ 二次元配列を作り、各行の同じ個数目の要素に<span class="back">#</span>は何個あるか。</p>
+<p>
+  圧倒的 B&lt;&lt;A。<br>
+  要約も何もないです。
+</p>
+
 <h3>Code</h3>
-<pre class = "line-numbers"><code class="language-python">h,w = map(int,input().split())
+<pre class = "line-numbers"><code class="language-python">a,b,c,d,e,f = list(map(int,input().split()))
 
-//arr : 縦h行*横w列の二次元配列
-arr = []
-for i in range(h):
-    arr.append(input())
-
-ans = []                //解答の格納
-for j in range(w):      //全(w)列回す
-    cnt = 0
-    for i in range(h):  //全(h)行回す
-        if arr[i][j] == '#':
-            cnt += 1
-    ans.append(cnt)
-
-//出力
-for i in ans[:len(ans) - 1]:
-    print(i,end = " ")
-print(ans[-1])
-</code></pre>
+print(((a*b*c)-(d*e*f))%998244353)</code></pre>
 </div>
 
 <!-- ! ---------- C問題 -------------- -->
@@ -253,11 +222,10 @@ print(ans[-1])
 
 <div class="new">
   <div class="dt">
-    <a id = "C" href="https://atcoder.jp/contests/abc274/tasks/abc274_c" target="_blank">
-      C - Ameba <i class="fa-sharp fa-solid fa-link"></i></a>
-      <span class="icon">-</span>
+    <a id = "C" href="https://atcoder.jp/contests/abc275/tasks/abc275_c" target="_blank">
+      C - Counting Squares <i class="fa-sharp fa-solid fa-link"></i></a>
+      <span class="icon icon-wa">WA</span>
     </div>
-  <p class="ques">問題が理解できなかったため次</p>
 </div>
 
 <!-- ! ---------- D問題 -------------- -->
@@ -353,14 +321,10 @@ $4) \quad$線分 $p_i \, p_{i+1}$ と 線分 $p_{i+1} \, p_{i+2}$ のなす角�
 
 <h3>言い訳</h3>
 <p>
-  この問題をそのまま解こうとすると足すか引くかの $2$ 通りをN個全て調べる必要があります(全探索)。<br>
-  なので、計算量としては $O(2^N)$ となり、最悪の場合(制約より) $2^{10^3} = 10^{301}$(回) ほどの計算が必要になります。<br>
-  ちなみにコンピュータが一秒間に処理できる回数は $10^8$~$10^9$です。<br>
-  ですのでむりです。あきらめましょう。<br><br>
-  実際はこのような問題に対しては 動的計画法 $dp$ というアルゴリズムを用いて
-  計算量を削減することができます。<br>
-  私はその辺には疎いのでアルゴリズムの勉強をしてみます。<br><br>
-  おわり。
+  この問題をそのまま解こうとすると足すか引くかの $2$ 通りを全て調べる必要があります(全探索)。<br>
+  なので、計算量としては $O(2^N)$ となり、最悪の場合 $10^{301}$(回) ほどの計算が必要になります。<br>
+  ですのでむりです。
+
 </p>
 </div>
 
