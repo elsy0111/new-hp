@@ -71,7 +71,7 @@
   <div class = "dt"><a href = "#A">A - Find Takahashi</a><span class = "icon-ac icon">AC</span></div>
   <div class = "dt"><a href = "#B">B - ABC-DEF</a><span class = "icon-ac icon">AC</span></div>
   <div class = "dt"><a href = "#C">C - Counting Squares</a><span class = "icon icon-wa">WA</span></div>
-  <div class = "dt"><a href = "#D">D - Yet Another Recursive Function</a><span class = "icon-tl icon">TLE</span></div>
+  <div class = "dt"><a href = "#D">D - Yet Another Recursive Function</a><span class = "icon">-</span></div>
   <!-- ! -->
 </div>
 <!-- ! ---------- A問題 -------------- -->
@@ -451,13 +451,30 @@ print(ans)
 <p>
   問題を見たときには残り10分を切っており、メモ化という手法自体は知っていたものの、
   実装するのには間に合いませんでした。<br>
+  以下にメモ化を行うライブラリを用いた実装例を載せます。
+</p>
+
+<h3>Code [AC]</h3>
+<pre class = "line-numbers"><code class="language-python">from functools import lru_cache
+ 
+@lru_cache
+def f(n):
+  if n== 0:
+    return 1
+  return f(n//2) + f(n//3)
+ 
+print(f(int(input())))
+</code></pre>
+</div>
+
+<h3>感想</h3>
+<p class = "ques">
   CよりDが簡単で、AよりBが簡単だと、、、、<br>
   問題を解く際はすべて目を通してから解けるものから解くという高校受験的な何かを思い出しました。。。<br>
   同じ2完だったけど良くなったとは思います。<br><br>
 
   おわり。
 </p>
-</div>
 
 </section>
 

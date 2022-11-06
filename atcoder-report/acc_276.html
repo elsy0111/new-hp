@@ -274,62 +274,53 @@ for j in Arr:
 <div class="new">
   <div class="dt">
     <a id = "C" href="https://atcoder.jp/contests/abc276/tasks/abc276_c" target="_blank">
-      C - Counting Squares
+      C - Previous Permutation
       <i class="fa-sharp fa-solid fa-link"></i>
     </a>
-      <span class="icon icon-wa">WA</span>
+      <span class="icon">-</span>
     </div>
 </div>
 <h3>- 問題 -</h3>
 <p class="ques">
-  二次元平面があります。$1$ 以上 $9$ 以下の整数 $r,c$ について、$S_r$ 
-  の $c$ 番目の文字が <span class="back">#</span> であるとき座標 $(r,c)$ 
-  にポーンが置いてあり、$S$ の $c$ 番目の文字が <span class="back">.</span> 
-  であるとき座標 $(r,c)$ に何も置かれていません。<br>
-
-  この平面上の正方形であって、$4$ 頂点全てにポーンが置いてあるものの個数を求めてください。
+ $(1,…,N)$ の順列 $P=(P_1,…,P_N)$ が与えられます。<br>
+ ただし $(P_1,…,P_N) \neq (1,…,N)$  です。<br>
+ $(1…,N)$ の順列を全て辞書順で小さい順に並べたとき、$P$ が $K$ 番目であるとします。<br>
+ 辞書順で小さい方から $K−1$ 番目の順列を求めてください。
 </p>
 
 <h3>制約</h3>
 <p class="ques">
-  $S_1,S_2,...,S_9$ はそれぞれ
-   <span class="back">#</span> と
-   <span class="back">.</span> からなる長さ $9$ の文字列
+  $2 \leq N \leq 100$<br>
+  $1 \leq P_i \leq N\:(1 \leq i \leq N)$<br>
+  $P_i \neq P_j\:(i \neq j)$<br>
+  $(P_1,…,P_N) \neq (1,…,N)$<br>
+  入力される値はすべて整数
 </p>
 
 <h3>入力</h3>
 <p class="ques">入力は以下の形式で標準入力から与えられる。</p>
 <div class="code">
-  $S_1$<br>
-  $S_2$<br>
-  $\vdots$<br>
-  $S_9$<br>
+  $N$<br>
+  $P_1\quad ... \quad P_N$<br>
 </div>
 
 <h3>出力</h3>
 <p class="ques">
-  答えを出力せよ。
+  求める順列を $Q=(Q_1,…,Q_N)$ として、$Q_1,…,Q_N$ をこの順に空白区切りで一行に出力せよ。
 </p>
 
 <h3>入力例</h3>
 <div class="code">
   <div class="block">
-    ##.......<br>
-    ##.......<br>
-    .........<br>
-    .......#.<br>
-    .....#...<br>
-    ........#<br>
-    ......#..<br>
-    .........<br>
-    .........<br>
+  3<br>
+  3 1 2
   </div>
 </div>
 
 <h3>出力例</h3>
 <div class="code">
   <div class="block">
-    2
+  2 3 1
   </div>
 </div>
 
@@ -338,83 +329,32 @@ for j in Arr:
 <div class="margin">
 <h3>問題文の要約</h3>
 <p>
-  <span class="back">#</span> を頂点とする正方形は何個ありますか？<br>
-  ここで判定するポイントとしては $2$ 個の頂点が決まった時点で残りの頂点は決まります。その個所に
-   <span class="back">#</span> があるのかどうかを調べます。<br>
-  全ての座標において説明するのは難しいので、以下は <span class="back">#</span> が $4$ 個であり、
-  即ち、正方形が $1$ この場合について説明します。 <br>
-  $1$ 個目の <span class="back">#</span> の座標を $(x_1,y_1)$ <br>
-  $n$ 個目の <span class="back">#</span> の座標を $(x_n,y_n)\quad (1 \leq n \leq 4)$ <br>
-  $1$ 個目の <span class="back">#</span> の座標と 
-  $2$ 個目の <span class="back">#</span> の座標の差を $(\Delta x,\Delta y)$ と表すこととします。<br>
-  <span class="gray-text">$\:\Leftrightarrow (\Delta x,\Delta y) = (x_2,y_2) - (x_1,y_1)$</span><br><br>
-  したがって、求めるのは以下です。<br>
-  <p class="f_large margin">
-    $(x_1,y_1)$
-    $\stackrel{\text{def}}{=} (x,y)$<br>
-    $s.t. (x,y) =$ <span class="back">#</span><br><br>
-
-    $\alpha : \: (x_2,y_2)$
-    $=(x_1 + \Delta x,y_1 + \Delta y)$
-    $=$ <span class="back">#</span><br>
-    $\beta  : \: (x_3,y_3)$
-    $=(x_1 - \Delta y,y_1 + \Delta x)$
-    $=$ <span class="back">#</span><br>
-    $\gamma : \: (x_4,y_4)$
-    $=(x_1 - \Delta y + \Delta x,y_1 + \Delta x + \Delta y)$
-    $= $ <span class="back">#</span><br><br>
-
-    $\alpha \land \beta \land \gamma$ を満たすとき, $(x_n,y_n) = $ <span class="back">#</span> を頂点とする正方形であるといえる。<br>
-
-  </p>
 
 </p>
 
-<h3>Code [WA]</h3>
-<pre class = "line-numbers"><code class="language-python">arr = []  #入力を格納する配列
-for i in range(9):
-    arr.append(input())
- 
-ans = 0   #条件を満たした正方形の個数
+<h3>実装上の説明</h3>
+  $P$ の $j$ 文字目と $j + 1$ 文字目で 昇順が成り立たなくなったとき、
+<p>
 
-for i in range(9):
-    for j in range(9):
-        if arr[i][j] == "#":
-            break_bool = False
-            x1 = i
-            y1 = j
-            for y in range(y1,9):
-                for x in range(9):  #↓(x_1,y_1)よりも右下を探索 => (x_1,x_2)までは探索しない
-                    if y == y1 and x <= x1:
-                        continue
-                    if arr[x][y] == "#":  #(x_2,y_2) = #
-                        dx = x - x1
-                        dy = y - x2
-                        break_bool = True
-                        break
-                if break_bool:
-                    break
-            if not break_bool:
-                break
-            
-            try:
-                if arr[x1 + dx][y1 + dy] == "#":
-                    if arr[x1 - dy][y1 + dx] == "#":
-                        if arr[x1 - dy + dx][y1 + dy + dx] == "#":
-                            ans += 1
-            except IndexError:
-                break
+</p>
+
+<h3>Code</h3>
+<pre class = "line-numbers"><code class="language-python">N = int(input())
+P = list(map(int,input().split()))
  
-print(ans)
+j = N-2
+while P[j] < P[j+1]:
+    j -= 1
+ 
+k = N-1
+while P[j] < P[k]:
+    k -= 1
+ 
+P[j],P[k] = P[k],P[j]
+print(*P[:j+1], *P[:j:-1])
 </code></pre>
 </div>
 <br>
-<div class="margin">
-  <h3>なぜ間違えたのですか?</h3>
-<p>
-  $(x_1,y_1)$ を頂点とする正方形は1つだけではないのです...
-</p>
-</div>
 
 <!-- ! ---------- D問題 -------------- -->
 
@@ -423,90 +363,27 @@ print(ans)
 <div class="new">
   <div class="dt">
     <a id = "D" href = "https://atcoder.jp/contests/abc276/tasks/abc276_d" target="_blank">
-      D - Yet Another Recursive Function
+      D - Divide by 2 or 3
       <i class="fa-sharp fa-solid fa-link"></i>
     </a>
-    <span class="icon-tl icon">TLE</span>
+    <span class="icon">-</span>
   </div>
 </div>
 
-<h3>- 問題 -</h3>
 <p class="ques">
-  非負整数 $x$ に対し定義される関数 $f(x)$ は以下の条件を満たします。<br>
-</p>
-<p class="margin f_large">
-  $f(0) = 1$<br>
-  任意の正整数 $k$ に対し 
-  $f(k)=f({\large \lfloor \frac{k}{2} \rfloor} ) + f({\large \lfloor \frac{k}{3} \rfloor })$<br>
-</p>
-<p class="ques">
-  ここで、$\lfloor A \rfloor$ は $A$ の小数点以下を切り捨てた値を指します。<br>
-  このとき、 $f(N)$ を求めてください。<br>
+ごめんなさい見てないです...
 </p>
 
-<h3>制約</h3>
-<p class="ques">
-  $0\leq N\leq 10^{18}$<br>
-  $N \in \mathbb{Z}$<br>
-</p>
-
-<h3>入力</h3>
-<p class="ques">入力は以下の形式で標準入力から与えられる。</p>
-<div class="code">
-  $N$<br>
-</div>
-
-<h3>出力</h3>
-<p class="ques">
-  答えを出力せよ。
-</p>
-
-<h3>入力例</h3>
-<div class="code">
-  <div class="block">
-    2
-  </div>
-</div>
-
-<h3>出力例</h3>
-<div class="code">
-  <div class="block">
-    3
-  </div>
-</div>
-
-<!-- ! ---- D解説 ------- -->
-<h3>- 解説 -</h3>
-<div class="margin">
-<h3>問題文の要約</h3>
+<h3>感想</h3>
 <p>
-  全ての項が$f(0)$になるまで関数を呼び出して計算してください。
-</p>
-
-<h3>そんな膨大な計算量どうすればいいですか</h3>
-<p>
-  メモ化を使うといいです。<br>
-  関数の引数に関数があり、その引数にも関数が、、このような構造、現象のことを再帰といいます。<br>
-  再帰をする問題ではよくメモ化と呼ばれる手法が出てきます。<br>
-  メモ化というのは一度計算した値をメモしておくことで計算量を劇的に削減する手法のことです。<br>
-  例としてはフィボナッチ数列の計算にも用いられています。<br>
-</p>
-
-<h3>Code</h3>
-<pre><code class="language-python">None
-</code></pre>
-
-<h3>言い訳</h3>
-<p>
-  問題を見たときには残り10分を切っており、メモ化という手法自体は知っていたものの、
-  実装するのには間に合いませんでした。<br>
-  CよりDが簡単で、AよりBが簡単だと、、、、<br>
-  問題を解く際はすべて目を通してから解けるものから解くという高校受験的な何かを思い出しました。。。<br>
-  同じ2完だったけど良くなったとは思います。<br><br>
-
+  あまりにもできなさ過ぎて、手法も知らないものが多い気がしますので勧められた 
+  <a href="https://algo-method.com/" class = "accent">アルゴ式</a> をやってみて、
+  基礎をつけようと思います。。<br>
+  それに、問題を理解するまでに時間がかかりすぎてしまっているので、
+  そこは分かりやすい方の解説を見てすぐに問題の要約ができるようなりたいですね。。<br>
+  今日のところはそんな感じで。。<br><br>
   おわり。
 </p>
-</div>
 
 </section>
 
@@ -516,7 +393,8 @@ print(ans)
 <h2><span class="accent">A</span>nother <span class="accent">C</span>ontest</h2>
 <div class="new an">
 
-  <div class="dt"><a href="acc_276.html">ABC 276</a><span class="icon">2022/10/29</span></div>
+  <div class="dt"><a href="acc_276.html">ABC 276</a><span class="icon">2022/11/05</span></div>
+  <div class="dt"><a href="acc_275.html">ABC 275</a><span class="icon">2022/10/29</span></div>
   <div class="dt"><a href="acc_274.html">ABC 274</a><span class="icon">2022/10/22</span></div>
 
 </div>
