@@ -38,6 +38,10 @@ body {
 	line-height: 2;
 }
 
+a i{
+	font-size: 0.7em;
+}
+
 /*reset*/
 figure {
 	margin: 0;
